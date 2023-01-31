@@ -1,0 +1,38 @@
+{
+  "name": "lib-javascript",
+  "type": "module",
+  "workspaces": [
+    "components-types"
+  ],
+  "version": "0.0.0",
+  "description": "Monorepo for Lenra's JavaScript libs",
+  "scripts": {
+    "clean": "rimraf ./packages/*/dist",
+    "build": "tsc --build",
+    "lint": "eslint .",
+    "pretest": "npm run lint && npm run build",
+    "test": "npm run test:only",
+    "test:only": "node --test --enable-source-maps",
+    "start": "npm run start:client",
+    "start:client": "npm run -w @sample/app start",
+    "prestart:server": "npm run -w @sample/app bundle:prod",
+    "start:server": "npm run -w @sample/server start",
+    "prettify": "npx prettier . --write"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenra-io/lib-javascript.git"
+  },
+  "author": "taorepoara",
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/lenra-io/lib-javascript/issues"
+  },
+  "homepage": "https://github.com/lenra-io/lib-javascript#readme"
+}

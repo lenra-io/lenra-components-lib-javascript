@@ -1,0 +1,28 @@
+{
+  "name": "@lenra/components-types",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Lenra's components types",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenra-io/lib-javascript.git"
+  },
+  "keywords": [
+    "lenra",
+    "components",
+    "types"
+  ],
+  "author": "taorepoara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lenra-io/lib-javascript/issues"
+  },
+  "homepage": "https://github.com/lenra-io/lib-javascript#readme",
+  "dependencies": {
+    "json-schema-to-typescript": "^11.0.3"
+  }
+}
