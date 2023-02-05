@@ -1,0 +1,3 @@
+[submodule "components-api"]
+	path = components-api
+	url = https://github.com/lenra-io/components-api.git

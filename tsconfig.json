@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2015",
+    "allowJs": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "experimentalDecorators": true
+  },
+  "include": ["lib/**/*"],
+  "exclude": ["lib/**/*.test.ts", "lib/**/*.test.lib.ts"]
+}
