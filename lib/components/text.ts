@@ -1,34 +1,34 @@
-import { Text as IText } from "../component";
+import { Locale, Text as IText, TextStyle } from "../component";
 import { Component } from "./component";
 export { IText };
 
 export class Text extends Component<IText> {
-  style(style) {
+  style(style: TextStyle) {
     this.model.style = style;
     return this;
   }
-  locale(locale) {
+  locale(locale: Locale) {
     this.model.locale = locale;
     return this;
   }
-  semanticsLabel(semanticsLabel) {
+  semanticsLabel(semanticsLabel: string) {
     this.model.semanticsLabel = semanticsLabel;
     return this;
   }
-  spellOut(spellOut) {
+  spellOut(spellOut: boolean) {
     this.model.spellOut = spellOut;
     return this;
   }
-  textAlign(textAlign) {
+  textAlign(textAlign: "left" | "center" | "right" | "justify" | "start" | "end") {
     this.model.textAlign = textAlign;
     return this;
   }
-  children(...children) {
+  children(...children: (Text | IText)[]) {
     this.model.children = children.map(Component.normalize);
     return this;
   }
 
-  static new(value): Text {
+  static new(value: string): Text {
     return new Text({
       type: "text",
       value: value,

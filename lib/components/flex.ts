@@ -48,7 +48,7 @@ export class Flex extends Component<IFlex> {
     return this;
   }
 
-  static new(...children): Flex {
+  static new<T extends Component1>(...children: (Component<T> | T)[]): Flex {
     return new Flex({
       type: "flex",
       children: children.map(Component.normalize),

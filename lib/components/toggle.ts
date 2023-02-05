@@ -1,37 +1,37 @@
-import { Toggle as IToggle } from "../component";
+import { DragStartBehavior, Toggle as IToggle, ToggleStyle } from "../component";
 import { Component } from "./component";
 export { IToggle };
 
 export class Toggle extends Component<IToggle> {
-  splashRadius(splashRadius) {
+  splashRadius(splashRadius: number) {
     this.model.splashRadius = splashRadius;
     return this;
   }
-  autofocus(autofocus) {
+  autofocus(autofocus: boolean) {
     this.model.autofocus = autofocus;
     return this;
   }
-  dragStartBehavior(dragStartBehavior) {
+  dragStartBehavior(dragStartBehavior: DragStartBehavior) {
     this.model.dragStartBehavior = dragStartBehavior;
     return this;
   }
   onPressed(action: string, props?: { [k: string]: unknown }) {
     return this.setListener("onPressed", action, props);
   }
-  style(style) {
+  style(style: ToggleStyle) {
     this.model.style = style;
     return this;
   }
-  name(name) {
+  name(name: string) {
     this.model.name = name;
     return this;
   }
-  disabled(disabled) {
+  disabled(disabled: boolean) {
     this.model.disabled = disabled;
     return this;
   }
 
-  static new(value): Toggle {
+  static new(value: boolean): Toggle {
     return new Toggle({
       type: "toggle",
       value: value,

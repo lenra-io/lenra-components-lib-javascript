@@ -1,66 +1,66 @@
-import { Image as IImage } from "../component";
+import { Alignment1, BoxFit, Component2, FilterQuality, Image as IImage, ImageRepeat, Rect } from "../component";
 import { Component } from "./component";
 export { IImage };
 
 export class Image extends Component<IImage> {
-  width(width) {
+  width(width: number) {
     this.model.width = width;
     return this;
   }
-  height(height) {
+  height(height: number) {
     this.model.height = height;
     return this;
   }
-  alignment(alignment) {
+  alignment(alignment: Alignment1) {
     this.model.alignment = alignment;
     return this;
   }
-  centerSlice(centerSlice) {
+  centerSlice(centerSlice: Rect) {
     this.model.centerSlice = centerSlice;
     return this;
   }
-  errorPlaceholder(errorPlaceholder) {
-    this.model.errorPlaceholder = errorPlaceholder;
+  errorPlaceholder<T extends Component2>(errorPlaceholder: Component<T> | T) {
+    this.model.errorPlaceholder = Component.normalize(errorPlaceholder);
     return this;
   }
-  excludeFromSemantics(excludeFromSemantics) {
+  excludeFromSemantics(excludeFromSemantics: boolean) {
     this.model.excludeFromSemantics = excludeFromSemantics;
     return this;
   }
-  filterQuality(filterQuality) {
+  filterQuality(filterQuality: FilterQuality) {
     this.model.filterQuality = filterQuality;
     return this;
   }
-  fit(fit) {
+  fit(fit: BoxFit) {
     this.model.fit = fit;
     return this;
   }
-  framePlaceholder(framePlaceholder) {
-    this.model.framePlaceholder = framePlaceholder;
+  framePlaceholder<T extends Component2>(framePlaceholder: Component<T> | T) {
+    this.model.framePlaceholder = Component.normalize(framePlaceholder);
     return this;
   }
-  gaplessPlayback(gaplessPlayback) {
+  gaplessPlayback(gaplessPlayback: boolean) {
     this.model.gaplessPlayback = gaplessPlayback;
     return this;
   }
-  isAntiAlias(isAntiAlias) {
+  isAntiAlias(isAntiAlias: boolean) {
     this.model.isAntiAlias = isAntiAlias;
     return this;
   }
-  loadingPlaceholder(loadingPlaceholder) {
-    this.model.loadingPlaceholder = loadingPlaceholder;
+  loadingPlaceholder<T extends Component2>(loadingPlaceholder: Component<T> | T) {
+    this.model.loadingPlaceholder = Component.normalize(loadingPlaceholder);
     return this;
   }
-  repeat(repeat) {
+  repeat(repeat: ImageRepeat) {
     this.model.repeat = repeat;
     return this;
   }
-  semanticLabel(semanticLabel) {
+  semanticLabel(semanticLabel: string) {
     this.model.semanticLabel = semanticLabel;
     return this;
   }
 
-  static new(src): Image {
+  static new(src: string): Image {
     return new Image({
       type: "image",
       src: src,

@@ -1,13 +1,13 @@
+import { Icon } from "..";
 import {
   Button as IButton,
   Icon as IIcon,
   Style as IStyle,
   Size as ISize,
-  Listener as IListener,
-  Listener,
+  Listener as IListener
 } from "../component";
 import { Component } from "./component";
-export { IButton, IIcon, IStyle, IListener };
+export { IButton };
 
 export class Button extends Component<IButton> {
   disabled(disabled) {
@@ -26,12 +26,12 @@ export class Button extends Component<IButton> {
     this.model.submit = val === undefined ? true : val;
     return this;
   }
-  leftIcon(icon: IIcon) {
-    this.model.leftIcon = icon;
+  leftIcon(icon: Icon | IIcon) {
+    this.model.leftIcon = Component.normalize(icon);
     return this;
   }
-  rightIcon(icon: IIcon) {
-    this.model.rightIcon = icon;
+  rightIcon(icon: Icon | IIcon) {
+    this.model.rightIcon = Component.normalize(icon);
     return this;
   }
   mainStyle(style: IStyle) {

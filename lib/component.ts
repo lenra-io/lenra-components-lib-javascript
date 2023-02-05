@@ -2044,12 +2044,7 @@ export type Color6 = number;
 /**
  * The style in which to draw a text decoration.
  */
-export type TextDecorationStyle =
-  | "dashed"
-  | "dotted"
-  | "double"
-  | "solid"
-  | "wavy";
+export type TextDecorationStyle = "dashed" | "dotted" | "double" | "solid" | "wavy";
 /**
  * A horizontal line used for aligning text.
  */
@@ -2186,13 +2181,7 @@ export type TextLeadingDitribution = "even" | "proportional";
 /**
  * The alignment of the text.
  */
-export type TextAlign =
-  | "left"
-  | "right"
-  | "center"
-  | "justify"
-  | "start"
-  | "end";
+export type TextAlign = "left" | "right" | "center" | "justify" | "start" | "end";
 /**
  * How the text should be aligned vertically.
  */
@@ -2204,10 +2193,7 @@ export type DragStartBehavior = "start" | "down";
 /**
  * Determines how the maxLength limit should be enforced.
  */
-export type MaxLengthEnforcement =
-  | "none"
-  | "enforced"
-  | "truncateAfterCompositionEnds";
+export type MaxLengthEnforcement = "none" | "enforced" | "truncateAfterCompositionEnds";
 /**
  * Configures how the platform keyboard will select an uppercase or lowercase keyboard.
  */
@@ -2240,13 +2226,7 @@ export type WrapCrossAlignment = "start" | "end" | "center";
 /**
  * How the objects in the Wrap should be aligned.
  */
-export type WrapAlignment =
-  | "start"
-  | "end"
-  | "center"
-  | "spaceBetween"
-  | "spaceAround"
-  | "spaceEvenly";
+export type WrapAlignment = "start" | "end" | "center" | "spaceBetween" | "spaceAround" | "spaceEvenly";
 /**
  * The quality of the image.
  */
@@ -2254,14 +2234,7 @@ export type FilterQuality = "high" | "medium" | "low" | "none";
 /**
  * How the image should fit the parent box.
  */
-export type BoxFit =
-  | "contain"
-  | "cover"
-  | "fill"
-  | "fitHeight"
-  | "fitWidth"
-  | "none"
-  | "scaleDown";
+export type BoxFit = "contain" | "cover" | "fill" | "fitHeight" | "fitWidth" | "none" | "scaleDown";
 /**
  * The component abstract type
  */
@@ -2596,13 +2569,7 @@ export interface Flex {
   /**
    * The alignment along the main axis
    */
-  mainAxisAlignment?:
-    | "start"
-    | "end"
-    | "center"
-    | "spaceBetween"
-    | "spaceAround"
-    | "spaceEvenly";
+  mainAxisAlignment?: "start" | "end" | "center" | "spaceBetween" | "spaceAround" | "spaceEvenly";
   /**
    * The alignment along the cross axis
    */
@@ -3018,18 +2985,7 @@ export interface TextStyle {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -3370,18 +3326,7 @@ export interface TextStyle1 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -3459,18 +3404,7 @@ export interface TextStyle2 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -3524,18 +3458,7 @@ export interface TextStyle3 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -3605,18 +3528,7 @@ export interface TextStyle4 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -3670,18 +3582,7 @@ export interface TextStyle5 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -3735,18 +3636,7 @@ export interface TextStyle6 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -3821,18 +3711,7 @@ export interface TextStyle7 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -3907,18 +3786,7 @@ export interface TextStyle8 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */
@@ -4019,18 +3887,7 @@ export interface TextStyle9 {
   /**
    * The weight of the text.
    */
-  fontWeight?:
-    | "bold"
-    | "normal"
-    | "w100"
-    | "w200"
-    | "w300"
-    | "w400"
-    | "w500"
-    | "w600"
-    | "w700"
-    | "w800"
-    | "w900";
+  fontWeight?: "bold" | "normal" | "w100" | "w200" | "w300" | "w400" | "w500" | "w600" | "w700" | "w800" | "w900";
   /**
    * The height of this text.
    */

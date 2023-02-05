@@ -3,7 +3,7 @@ import { Component } from "./component";
 export { IStatusSticker };
 
 export class StatusSticker extends Component<IStatusSticker> {
-  static new(status): StatusSticker {
+  static new(status: "success" | "warning" | "error" | "pending"): StatusSticker {
     return new StatusSticker({
       type: "statusSticker",
       status: status,

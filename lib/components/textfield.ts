@@ -1,65 +1,64 @@
-import { TextField as ITextField } from "../component";
+import { AutofillHints, DragStartBehavior, MaxLengthEnforcement, TextCapitalization, TextDirection, TextField as ITextField, TextFieldStyle, TextInputAction, TextInputType, ToolbarOptions } from "../component";
 import { Component } from "./component";
 export { ITextField };
 
 export class TextField extends Component<ITextField> {
-  autocorrect(autocorrect) {
+  autocorrect(autocorrect: boolean) {
     this.model.autocorrect = autocorrect;
     return this;
   }
-  autofillHints(autofillHints) {
+  autofillHints(autofillHints: AutofillHints) {
     this.model.autofillHints = autofillHints;
     return this;
   }
-  autofocus(autofocus) {
+  autofocus(autofocus: boolean) {
     this.model.autofocus = autofocus;
     return this;
   }
-  buildCounter(buildCounter) {
-    this.model.buildCounter = buildCounter;
-    return this;
+  buildCounter(action: string, props?: { [k: string]: unknown }) {
+    return this.setListener("buildCounter", action, props);
   }
-  style(style) {
+  style(style: TextFieldStyle) {
     this.model.style = style;
     return this;
   }
-  dragStartBehavior(dragStartBehavior) {
+  dragStartBehavior(dragStartBehavior: DragStartBehavior) {
     this.model.dragStartBehavior = dragStartBehavior;
     return this;
   }
-  enabled(enabled) {
+  enabled(enabled: boolean) {
     this.model.enabled = enabled;
     return this;
   }
-  enableInteractiveSelection(enableInteractiveSelection) {
+  enableInteractiveSelection(enableInteractiveSelection: boolean) {
     this.model.enableInteractiveSelection = enableInteractiveSelection;
     return this;
   }
-  expands(expands) {
+  expands(expands: boolean) {
     this.model.expands = expands;
     return this;
   }
-  keyboardType(keyboardType) {
+  keyboardType(keyboardType: TextInputType) {
     this.model.keyboardType = keyboardType;
     return this;
   }
-  maxLength(maxLength) {
+  maxLength(maxLength: number) {
     this.model.maxLength = maxLength;
     return this;
   }
-  maxLengthEnforcement(maxLengthEnforcement) {
+  maxLengthEnforcement(maxLengthEnforcement: MaxLengthEnforcement) {
     this.model.maxLengthEnforcement = maxLengthEnforcement;
     return this;
   }
-  maxLines(maxLines) {
+  maxLines(maxLines: number) {
     this.model.maxLines = maxLines;
     return this;
   }
-  minLines(minLines) {
+  minLines(minLines: number) {
     this.model.minLines = minLines;
     return this;
   }
-  obscureText(obscureText) {
+  obscureText(obscureText: boolean) {
     this.model.obscureText = obscureText;
     return this;
   }
@@ -78,36 +77,36 @@ export class TextField extends Component<ITextField> {
   onTap(action: string, props?: { [k: string]: unknown }) {
     return this.setListener("onTap", action, props);
   }
-  readOnly(readOnly) {
+  readOnly(readOnly: boolean) {
     this.model.readOnly = readOnly;
     return this;
   }
-  showCursor(showCursor) {
+  showCursor(showCursor: boolean) {
     this.model.showCursor = showCursor;
     return this;
   }
-  textCapitalization(textCapitalization) {
+  textCapitalization(textCapitalization: TextCapitalization) {
     this.model.textCapitalization = textCapitalization;
     return this;
   }
-  textDirection(textDirection) {
+  textDirection(textDirection: TextDirection) {
     this.model.textDirection = textDirection;
     return this;
   }
-  textInputAction(textInputAction) {
+  textInputAction(textInputAction: TextInputAction) {
     this.model.textInputAction = textInputAction;
     return this;
   }
-  toolbarOptions(toolbarOptions) {
+  toolbarOptions(toolbarOptions: ToolbarOptions) {
     this.model.toolbarOptions = toolbarOptions;
     return this;
   }
-  name(name) {
+  name(name: string) {
     this.model.name = name;
     return this;
   }
 
-  static new(value): TextField {
+  static new(value: string): TextField {
     return new TextField({
       type: "textfield",
       value: value,

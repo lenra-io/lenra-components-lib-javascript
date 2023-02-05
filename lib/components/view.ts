@@ -1,26 +1,26 @@
-import { View as IView } from "../component";
+import { Props, View as IView } from "../component";
 import { Component } from "./component";
 export { IView };
 
 export class View extends Component<IView> {
-  props(props) {
+  props(props: Props) {
     this.model.props = props;
     return this;
   }
-  context(context) {
+  context(context: boolean) {
     this.model.context = context;
     return this;
   }
-  data(coll, query) {
+  data(coll: string, query: { [k: string]: unknown }) {
     this.model.coll = coll;
     this.model.query = query;
     return this;
   }
-  coll(coll) {
+  coll(coll: string) {
     this.model.coll = coll;
     return this;
   }
-  query(query) {
+  query(query: { [k: string]: unknown }) {
     this.model.query = query;
     return this;
   }
