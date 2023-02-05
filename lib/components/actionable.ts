@@ -1,4 +1,4 @@
-import { Actionable as IActionable } from "../component";
+import { Actionable as IActionable, Component1 } from "../component";
 import { Component } from "./component";
 export { IActionable };
 
@@ -18,12 +18,12 @@ export class Actionable extends Component<IActionable> {
   onHovered(action: string, props?: { [k: string]: unknown }) {
     return this.setListener("onHovered", action, props);
   }
-  submit(submit) {
+  submit(submit: boolean) {
     this.model.submit = submit;
     return this;
   }
 
-  static new(child): Actionable {
+  static new<T extends Component1>(child: Component<T> | T): Actionable {
     return new Actionable({
       type: "actionable",
       child: Component.normalize(child),

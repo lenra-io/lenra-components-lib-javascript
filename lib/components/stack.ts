@@ -1,4 +1,4 @@
-import { Stack as IStack } from "../component";
+import { Component1, Stack as IStack } from "../component";
 import { Component } from "./component";
 export { IStack };
 
@@ -12,7 +12,7 @@ export class Stack extends Component<IStack> {
     return this;
   }
 
-  static new(...children): Stack {
+  static new<T extends Component1>(...children: (Component<T> | T)[]): Stack {
     return new Stack({
       type: "stack",
       children: children.map(Component.normalize),

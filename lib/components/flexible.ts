@@ -1,13 +1,13 @@
-import { Flexible as IFlexible } from "../component";
+import { FlexFit, Flexible as IFlexible } from "../component";
 import { Component } from "./component";
 export { IFlexible };
 
 export class Flexible extends Component<IFlexible> {
-  flex(flex) {
+  flex(flex: number) {
     this.model.flex = flex;
     return this;
   }
-  fit(fit) {
+  fit(fit: FlexFit) {
     this.model.fit = fit;
     return this;
   }

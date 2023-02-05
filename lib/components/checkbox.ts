@@ -1,33 +1,33 @@
-import { Checkbox as ICheckbox } from "../component";
+import { Checkbox as ICheckbox, CheckboxStyle, MaterialTapTargetSize } from "../component";
 import { Component } from "./component";
 export { ICheckbox };
 
 export class Checkbox extends Component<ICheckbox> {
-  tristate(tristate) {
+  tristate(tristate: boolean) {
     this.model.tristate = tristate;
     return this;
   }
   onPressed(action: string, props?: { [k: string]: unknown }) {
     return this.setListener("onPressed", action, props);
   }
-  style(style) {
+  style(style: CheckboxStyle) {
     this.model.style = style;
     return this;
   }
-  materialTapTargetSize(materialTapTargetSize) {
+  materialTapTargetSize(materialTapTargetSize: MaterialTapTargetSize) {
     this.model.materialTapTargetSize = materialTapTargetSize;
     return this;
   }
-  autofocus(autofocus) {
+  autofocus(autofocus: boolean) {
     this.model.autofocus = autofocus;
     return this;
   }
-  name(name) {
+  name(name: string) {
     this.model.name = name;
     return this;
   }
 
-  static new(value): Checkbox {
+  static new(value: boolean): Checkbox {
     return new Checkbox({
       type: "checkbox",
       value: value,
