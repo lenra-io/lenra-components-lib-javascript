@@ -11,7 +11,7 @@ test("empty", () => {
 });
 
 test("children", () => {
-  checkComponent(Stack.new(Button.new("Test").onPressed("test")), {
+  checkComponent(Stack.new(Button("Test").onPressed("test")), {
     type: "stack",
     children: [
       {

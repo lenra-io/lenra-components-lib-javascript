@@ -11,7 +11,7 @@ test("empty", () => {
 });
 
 test("children", () => {
-  checkComponent(Flex.new(Button.new("Test").onPressed("test")), {
+  checkComponent(Flex.new(Button("Test").onPressed("test")), {
     type: "flex",
     children: [
       {

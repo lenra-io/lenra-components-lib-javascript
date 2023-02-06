@@ -4,12 +4,15 @@ import {
   Icon as IIcon,
   Style as IStyle,
   Size as ISize,
-  Listener as IListener
 } from "../component";
 import { Component } from "./component";
-export { IButton };
 
-export class Button extends Component<IButton> {
+
+function Button(text: string) {
+  return new ButtonImpl(text);
+}
+
+class ButtonImpl extends Component<IButton> {
   disabled(disabled: boolean) {
     this.model.disabled = disabled;
     return this;
@@ -46,10 +49,12 @@ export class Button extends Component<IButton> {
     return this.setListener("onPressed", action, props);
   }
 
-  static new(text: string): Button {
-    return new Button({
+  constructor(text: string) {
+    super({
       type: "button",
       text: text,
     });
   }
 }
+
+export { IButton, Button, ButtonImpl };

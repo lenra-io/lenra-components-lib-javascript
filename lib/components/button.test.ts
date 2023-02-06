@@ -3,7 +3,7 @@ import { Button } from "./button";
 import { checkComponent } from "./component.test.lib";
 
 test("basic", () => {
-  checkComponent(Button.new("My text"), {
+  checkComponent(Button("My text"), {
     type: "button",
     text: "My text",
   });
@@ -11,7 +11,7 @@ test("basic", () => {
 
 test("onPressed", () => {
   const text = "My text";
-  checkComponent(Button.new("My text").onPressed("test"), {
+  checkComponent(Button("My text").onPressed("test"), {
     type: "button",
     text: "My text",
     onPressed: {
