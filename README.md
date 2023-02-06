@@ -50,7 +50,7 @@ npm i @lenra/components
 
 Create components
 ```javascript
-Flex.new(Button.new("Test").onPressed("test"))
+Flex(Button("Test").onPressed("test"))
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
