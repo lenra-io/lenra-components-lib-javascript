@@ -10,7 +10,7 @@ import { Component } from "./component";
 export { IButton };
 
 export class Button extends Component<IButton> {
-  disabled(disabled) {
+  disabled(disabled: boolean) {
     this.model.disabled = disabled;
     return this;
   }
@@ -22,7 +22,7 @@ export class Button extends Component<IButton> {
     this.model.disabled = false;
     return this;
   }
-  submit(val) {
+  submit(val: boolean) {
     this.model.submit = val === undefined ? true : val;
     return this;
   }

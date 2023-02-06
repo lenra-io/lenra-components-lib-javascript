@@ -1,45 +1,45 @@
-import { Component1, Flex as IFlex } from "../component";
+import { Component1, Direction, Flex as IFlex, Padding, TextDirection, VerticalDirection, TextBaseline } from "../component";
 import { Component } from "./component";
 export { IFlex };
 
 export class Flex extends Component<IFlex> {
-  direction(direction) {
+  direction(direction: Direction) {
     this.model.direction = direction;
     return this;
   }
-  mainAxisAlignment(mainAxisAlignment) {
+  mainAxisAlignment(mainAxisAlignment: "start" | "end" | "center" | "spaceBetween" | "spaceAround" | "spaceEvenly") {
     this.model.mainAxisAlignment = mainAxisAlignment;
     return this;
   }
-  crossAxisAlignment(crossAxisAlignment) {
+  crossAxisAlignment(crossAxisAlignment: "start" | "end" | "center" | "stretch" | "baseline") {
     this.model.crossAxisAlignment = crossAxisAlignment;
     return this;
   }
-  spacing(spacing) {
+  spacing(spacing: number) {
     this.model.spacing = spacing;
     return this;
   }
-  fillParent(fillParent) {
+  fillParent(fillParent: boolean) {
     this.model.fillParent = fillParent;
     return this;
   }
-  scroll(scroll) {
+  scroll(scroll: boolean) {
     this.model.scroll = scroll;
     return this;
   }
-  padding(padding) {
+  padding(padding: Padding) {
     this.model.padding = padding;
     return this;
   }
-  horizontalDirection(horizontalDirection) {
+  horizontalDirection(horizontalDirection: TextDirection) {
     this.model.horizontalDirection = horizontalDirection;
     return this;
   }
-  verticalDirection(verticalDirection) {
+  verticalDirection(verticalDirection: VerticalDirection) {
     this.model.verticalDirection = verticalDirection;
     return this;
   }
-  textBaseline(textBaseline) {
+  textBaseline(textBaseline: TextBaseline) {
     this.model.textBaseline = textBaseline;
     return this;
   }
