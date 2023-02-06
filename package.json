@@ -14,7 +14,6 @@
     "generate": "npm run build && node generate.js",
     "build": "tsc",
     "test": "jest",
-    "prettify": "npx prettier . --write",
     "prepublish": "npm run build"
   },
   "devDependencies": {

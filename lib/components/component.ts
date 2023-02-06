@@ -2,7 +2,7 @@ import { Component1 } from "../component";
 
 export abstract class Component<T> {
   protected model: T;
-  protected constructor(model: T) {
+  constructor(model: T) {
     this.model = model;
   }
   toJSON(): T {

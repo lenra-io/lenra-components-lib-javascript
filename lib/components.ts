@@ -1,6 +1,5 @@
 export * from "./components/button";
 export * from "./components/container";
-export * from "./components/actionable";
 export * from "./components/checkbox";
 export * from "./components/dropdownButton";
 export * from "./components/flex";

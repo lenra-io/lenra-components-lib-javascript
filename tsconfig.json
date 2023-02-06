@@ -5,8 +5,18 @@
     "allowJs": true,
     "declaration": true,
     "outDir": "./dist",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "plugins": [
+      {
+        "transform": "ts-transformer-keys/transformer"
+      }
+    ]
   },
-  "include": ["lib/**/*"],
-  "exclude": ["lib/**/*.test.ts", "lib/**/*.test.lib.ts"]
+  "include": [
+    "lib/**/*"
+  ],
+  "exclude": [
+    "lib/**/*.test.ts",
+    "lib/**/*.test.lib.ts"
+  ]
 }
