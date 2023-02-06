@@ -4,14 +4,14 @@ import { checkComponent } from "./component.test.lib";
 import { Button } from "./button";
 
 test("empty", () => {
-  checkComponent(Stack.new(), {
+  checkComponent(Stack(), {
     type: "stack",
     children: [],
   });
 });
 
 test("children", () => {
-  checkComponent(Stack.new(Button("Test").onPressed("test")), {
+  checkComponent(Stack(Button("Test").onPressed("test")), {
     type: "stack",
     children: [
       {

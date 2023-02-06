@@ -1,12 +1,14 @@
-import { StatusSticker as IStatusSticker } from "../component";
-import { Component } from "./component";
-export { IStatusSticker };
+import { IStatusSticker, StatusStickerBaseImpl } from './statusSticker.base'
 
-export class StatusSticker extends Component<IStatusSticker> {
-  static new(status: "success" | "warning" | "error" | "pending"): StatusSticker {
-    return new StatusSticker({
+export { IStatusSticker }
+
+export function StatusSticker(status: IStatusSticker['status']): StatusStickerImpl {
+  return new StatusStickerImpl({
       type: "statusSticker",
       status: status,
-    });
-  }
+  });
+}
+
+export class StatusStickerImpl extends StatusStickerBaseImpl {
+  // Add here custom implementations
 }

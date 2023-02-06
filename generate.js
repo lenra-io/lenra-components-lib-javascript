@@ -9,7 +9,7 @@ const COMPONENTS_PATH = path.join(API_PATH, "components");
 const COMPONENT_CLASSES_PATH = path.resolve("lib", "components");
 const ROOT_FILE = "component.schema.json";
 
-generatesInterface().then(() => generateMissingClasses());
+generatesInterface().then(() => generateClasses());
 
 // Generate interfaces
 async function generatesInterface() {
@@ -23,7 +23,7 @@ async function generatesInterface() {
   fs.writeFileSync(tsFile, ts);
 }
 
-async function generateMissingClasses() {
+async function generateClasses() {
   // Generate not existing classes
   let componentsFileContent = fs.readFileSync(
     COMPONENT_CLASSES_PATH + ".ts",
@@ -36,6 +36,13 @@ async function generateMissingClasses() {
     // Check if the class exists
     const schemaPath = path.join(COMPONENTS_PATH, comp);
     const schema = JSON.parse(fs.readFileSync(schemaPath, "utf-8"));
+    const baseClassPath = path.join(
+      COMPONENT_CLASSES_PATH,
+      comp.replace(/\.schema\.json$/, ".base.ts")
+    );
+    console.log(`Generating ${baseClassPath} file for ${schema.title}`);
+    fs.writeFileSync(baseClassPath, generateBaseClass(schema));
+
     if (!components[schema.title]) {
       console.log(`class ${schema.title} does not exist`);
       // Check if the file corresponding to the schema exists
@@ -43,10 +50,11 @@ async function generateMissingClasses() {
         COMPONENT_CLASSES_PATH,
         schemaToTypescriptFilename(comp)
       );
+
       if (!fs.existsSync(classPath)) {
         // Creates the file
         console.log(`Generating ${classPath} file for ${schema.title}`);
-        fs.writeFileSync(classPath, generateComponent(schema));
+        fs.writeFileSync(classPath, generateImplClass(schema, comp.replace(/\.schema\.json$/, ".base")));
       }
       // Check if the file is imported in the main components file
       const importComponent = `export * from './components/${comp.replace(
@@ -70,28 +78,40 @@ function schemaToTypescriptFilename(name) {
   return name.replace(/\.schema\.json$/, ".ts");
 }
 
-function generateComponent(schema) {
+function generateImplClass(schema, from) {
   const { title, properties, required } = schema;
   const requiredNoType = required.filter((key) => key != "type");
-  const propertiesNotRequired = (properties ? Object.entries(properties) : []).map(([key, _]) => key)
-    .filter(key => !(required || []).includes(key));
-  const types = [`${title} as I${title}`];
 
-  return `import { ${types.join(', ')} } from '../component'
-import { Component } from './component';
+  return `import { I${title}, ${title}BaseImpl } from './${from}'
 
 export { I${title} }
 
 export function ${title}(${requiredNoType.map(key => `${key}: I${title}['${key}']`).join(", ")}): ${title}Impl {
   return new ${title}Impl({
-      type: "${properties.type.enum[0]}",
-      ${requiredNoType
+    type: "${properties.type.enum[0]}",
+    ${requiredNoType
       .map((key) => `${key}: ${key},`)
-      .join("\n            ")}
+      .join("\n    ")}
   });
 }
 
-class ${title}BaseImpl extends Component<I${title}> {
+export class ${title}Impl extends ${title}BaseImpl {
+  // Add here custom implementations
+}
+`;
+}
+
+function generateBaseClass(schema) {
+  const { title, properties, required } = schema;
+  const propertiesNotRequired = (properties ? Object.entries(properties) : []).map(([key, _]) => key)
+    .filter(key => !(required || []).includes(key));
+
+  return `import { ${title} as I${title} } from '../component'
+import { Component } from './component';
+
+export { I${title} }
+
+export class ${title}BaseImpl extends Component<I${title}> {
     ${propertiesNotRequired
       .map(key => {
         if (/^on[A-Z]/.test(key)) {
@@ -104,7 +124,5 @@ class ${title}BaseImpl extends Component<I${title}> {
       })
       .join("\n    ")}
 }
-
-export class ${title}Impl extends ${title}BaseImpl {}
 `;
 }

@@ -1,12 +1,16 @@
-import { Component1, Menu as IMenu } from "../component";
-import { Component } from "./component";
-export { IMenu };
+import { Component1 } from '../component';
+import { Component } from './component';
+import { IMenu, MenuBaseImpl } from './menu.base'
 
-export class Menu extends Component<IMenu> {
-  static new<T extends Component1>(...children: (Component<T> | T)[]): Menu {
-    return new Menu({
-      type: "menu",
-      children: children.map(Component.normalize),
-    });
-  }
+export { IMenu }
+
+export function Menu<T extends Component1>(...children: (Component<T> | T)[]): MenuImpl {
+  return new MenuImpl({
+    type: "menu",
+    children: children.map(Component.normalize),
+  });
+}
+
+export class MenuImpl extends MenuBaseImpl {
+  // Add here custom implementations
 }

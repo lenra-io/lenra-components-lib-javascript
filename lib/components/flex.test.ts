@@ -4,14 +4,14 @@ import { checkComponent } from "./component.test.lib";
 import { Button } from "./button";
 
 test("empty", () => {
-  checkComponent(Flex.new(), {
+  checkComponent(Flex(), {
     type: "flex",
     children: [],
   });
 });
 
 test("children", () => {
-  checkComponent(Flex.new(Button("Test").onPressed("test")), {
+  checkComponent(Flex(Button("Test").onPressed("test")), {
     type: "flex",
     children: [
       {

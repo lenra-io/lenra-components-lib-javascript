@@ -1,21 +1,16 @@
-import { FlexFit, Flexible as IFlexible } from "../component";
-import { Component } from "./component";
-export { IFlexible };
+import { Component1 } from '../component';
+import { Component } from './component';
+import { IFlexible, FlexibleBaseImpl } from './flexible.base'
 
-export class Flexible extends Component<IFlexible> {
-  flex(flex: number) {
-    this.model.flex = flex;
-    return this;
-  }
-  fit(fit: FlexFit) {
-    this.model.fit = fit;
-    return this;
-  }
+export { IFlexible }
 
-  static new(child): Flexible {
-    return new Flexible({
-      type: "flexible",
-      child: Component.normalize(child),
-    });
-  }
+export function Flexible<T extends Component1>(child: Component<T> | T): FlexibleImpl {
+  return new FlexibleImpl({
+    type: "flexible",
+    child: Component.normalize(child),
+  });
+}
+
+export class FlexibleImpl extends FlexibleBaseImpl {
+  // Add here custom implementations
 }

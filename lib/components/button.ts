@@ -1,22 +1,17 @@
-import { Icon } from "..";
-import {
-  Button as IButton,
-  Icon as IIcon,
-  Style as IStyle,
-  Size as ISize,
-} from "../component";
-import { Component } from "./component";
+import { IIcon } from '..';
+import { IButton, ButtonBaseImpl } from './button.base'
+import { Component } from './component';
 
+export { IButton }
 
-function Button(text: string) {
-  return new ButtonImpl(text);
+export function Button(text: IButton['text']): ButtonImpl {
+  return new ButtonImpl({
+      type: "button",
+      text: text,
+  });
 }
 
-class ButtonImpl extends Component<IButton> {
-  disabled(disabled: boolean) {
-    this.model.disabled = disabled;
-    return this;
-  }
+export class ButtonImpl extends ButtonBaseImpl {
   disable() {
     this.model.disabled = true;
     return this;
@@ -25,36 +20,13 @@ class ButtonImpl extends Component<IButton> {
     this.model.disabled = false;
     return this;
   }
-  submit(val: boolean) {
-    this.model.submit = val === undefined ? true : val;
-    return this;
-  }
-  leftIcon(icon: Icon | IIcon) {
+
+  leftIcon(icon: Component<IIcon> | IIcon) {
     this.model.leftIcon = Component.normalize(icon);
     return this;
   }
-  rightIcon(icon: Icon | IIcon) {
+  rightIcon(icon: Component<IIcon> | IIcon) {
     this.model.rightIcon = Component.normalize(icon);
     return this;
   }
-  mainStyle(style: IStyle) {
-    this.model.mainStyle = style;
-    return this;
-  }
-  size(size: ISize) {
-    this.model.size = size;
-    return this;
-  }
-  onPressed(action: string, props?: { [k: string]: unknown }) {
-    return this.setListener("onPressed", action, props);
-  }
-
-  constructor(text: IButton['text']) {
-    super({
-      type: "button",
-      text: text,
-    });
-  }
 }
-
-export { IButton, Button, ButtonImpl };

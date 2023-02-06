@@ -1,25 +1,16 @@
-import { Component1, OverlayEntry as IOverlayEntry } from "../component";
-import { Component } from "./component";
-export { IOverlayEntry };
+import { Component1 } from '../component';
+import { Component } from './component';
+import { IOverlayEntry, OverlayEntryBaseImpl } from './overlayEntry.base'
 
-export class OverlayEntry extends Component<IOverlayEntry> {
-  maintainState(maintainState: boolean) {
-    this.model.maintainState = maintainState;
-    return this;
-  }
-  opaque(opaque: boolean) {
-    this.model.opaque = opaque;
-    return this;
-  }
-  showOverlay(showOverlay: boolean) {
-    this.model.showOverlay = showOverlay;
-    return this;
-  }
+export { IOverlayEntry }
 
-  static new<T extends Component1>(child: Component<T> | T): OverlayEntry {
-    return new OverlayEntry({
+export function OverlayEntry<T extends Component1>(child: Component<T> | T): OverlayEntryImpl {
+  return new OverlayEntryImpl({
       type: "overlayEntry",
       child: Component.normalize(child),
-    });
-  }
+  });
+}
+
+export class OverlayEntryImpl extends OverlayEntryBaseImpl {
+  // Add here custom implementations
 }

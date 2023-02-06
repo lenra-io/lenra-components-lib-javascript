@@ -1,29 +1,14 @@
-import { Icon, IIcon } from "..";
-import { MenuItem as IMenuItem } from "../component";
-import { Component } from "./component";
-export { IMenuItem };
+import { IMenuItem, MenuItemBaseImpl } from './menuItem.base'
 
-export class MenuItem extends Component<IMenuItem> {
-  isSelected(isSelected: boolean) {
-    this.model.isSelected = isSelected;
-    return this;
-  }
-  disabled(disabled: boolean) {
-    this.model.disabled = disabled;
-    return this;
-  }
-  icon(icon: Icon | IIcon) {
-    this.model.icon = Component.normalize(icon);
-    return this;
-  }
-  onPressed(action: string, props?: { [k: string]: unknown }) {
-    return this.setListener("onPressed", action, props);
-  }
+export { IMenuItem }
 
-  static new(text: string): MenuItem {
-    return new MenuItem({
+export function MenuItem(text: IMenuItem['text']): MenuItemImpl {
+  return new MenuItemImpl({
       type: "menuItem",
       text: text,
-    });
-  }
+  });
+}
+
+export class MenuItemImpl extends MenuItemBaseImpl {
+  // Add here custom implementations
 }

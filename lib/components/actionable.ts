@@ -1,25 +1,16 @@
-import { Actionable as IActionable } from '../component'
+import { Component1 } from '../component';
+import { IActionable, ActionableBaseImpl } from './actionable.base'
 import { Component } from './component';
 
 export { IActionable }
 
-export function Actionable(child: IActionable['child']): ActionableImpl {
+export function Actionable<T extends Component1>(child: Component<T> | T): ActionableImpl {
   return new ActionableImpl({
-      type: "actionable",
-      child: child,
+    type: "actionable",
+    child: Component.normalize(child),
   });
 }
 
-class ActionableBaseImpl extends Component<IActionable> {
-    onPressed(action: string, props?: { [k: string]: unknown; }) { return this.setListener("onPressed", action, props); }
-    onDoublePressed(action: string, props?: { [k: string]: unknown; }) { return this.setListener("onDoublePressed", action, props); }
-    onLongPressed(action: string, props?: { [k: string]: unknown; }) { return this.setListener("onLongPressed", action, props); }
-    onPressedCancel(action: string, props?: { [k: string]: unknown; }) { return this.setListener("onPressedCancel", action, props); }
-    onHovered(action: string, props?: { [k: string]: unknown; }) { return this.setListener("onHovered", action, props); }
-    submit(submit: IActionable['submit']) {
-        this.model.submit = submit;
-        return this;
-    }
+export class ActionableImpl extends ActionableBaseImpl {
+  // Add here custom implementations
 }
-
-export class ActionableImpl extends ActionableBaseImpl {}

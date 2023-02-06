@@ -17,14 +17,17 @@ describe("Managed component", () => {
     const content = JSON.parse(
       fs.readFileSync(path.join(COMPONENTS_PATH, comp), "utf-8")
     );
-    const c = components[content.title];
-    test(`class ${content.title} exists`, () => {
+    const f = components[content.title];
+    const c = components[`${content.title}Impl`];
+    test(`function ${content.title} exists`, () => {
+      expect(f).toBeDefined();
+    });
+    test(`class ${content.title}Impl exists`, () => {
       expect(c).toBeDefined();
     });
 
     if (c) {
       describe("methods", () => {
-        const c = components[content.title];
         const properties = Object.entries(content.properties).filter(
           ([key, _]) => !(content.required || []).includes(key)
         );

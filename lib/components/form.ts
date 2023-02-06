@@ -1,16 +1,16 @@
-import { Form as IForm } from "../component";
-import { Component } from "./component";
-export { IForm };
+import { Component1 } from '../component';
+import { Component } from './component';
+import { IForm, FormBaseImpl } from './form.base'
 
-export class Form extends Component<IForm> {
-  onSubmit(action: string, props?: { [k: string]: unknown }) {
-    return this.setListener("onSubmit", action, props);
-  }
+export { IForm }
 
-  static new(child): Form {
-    return new Form({
-      type: "form",
-      child: Component.normalize(child),
-    });
-  }
+export function Form<T extends Component1>(child: Component<T> | T): FormImpl {
+  return new FormImpl({
+    type: "form",
+    child: Component.normalize(child),
+  });
+}
+
+export class FormImpl extends FormBaseImpl {
+  // Add here custom implementations
 }
