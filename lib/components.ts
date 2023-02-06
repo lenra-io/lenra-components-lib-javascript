@@ -19,3 +19,4 @@ export * from "./components/view";
 export * from "./components/wrap";
 export * from "./components/menu";
 export * from "./components/statusSticker";
+export * from './components/actionable';

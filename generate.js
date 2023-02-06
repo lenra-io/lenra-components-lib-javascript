@@ -46,8 +46,7 @@ async function generateMissingClasses() {
       if (!fs.existsSync(classPath)) {
         // Creates the file
         console.log(`Generating ${classPath} file for ${schema.title}`);
-        const content = generateComponent(schema);
-        // fs.writeFileSync(classPath, content);
+        fs.writeFileSync(classPath, generateComponent(schema));
       }
       // Check if the file is imported in the main components file
       const importComponent = `export * from './components/${comp.replace(
@@ -63,7 +62,7 @@ async function generateMissingClasses() {
   }
   if (componentsFileChanged) {
     console.log(`Updating ${COMPONENT_CLASSES_PATH}`);
-    // fs.writeFileSync(COMPONENT_CLASSES_PATH + ".ts", componentsFileContent);
+    fs.writeFileSync(COMPONENT_CLASSES_PATH + ".ts", componentsFileContent);
   }
 }
 
@@ -74,17 +73,16 @@ function schemaToTypescriptFilename(name) {
 function generateComponent(schema) {
   const { title, properties, required } = schema;
   const requiredNoType = required.filter((key) => key != "type");
-  const propertiesArray = (properties ? Object.entries(properties) : []).map(([key, _]) => key);
-  const propertiesNotRequired = propertiesArray.filter(key => !(required || []).includes(key));
+  const propertiesNotRequired = (properties ? Object.entries(properties) : []).map(([key, _]) => key)
+    .filter(key => !(required || []).includes(key));
   const types = [`${title} as I${title}`];
-  console.log(title, getInterfaceTypes(title));
 
   return `import { ${types.join(', ')} } from '../component'
 import { Component } from './component';
 
 export { I${title} }
 
-export function ${title}(${requiredNoType.join(", ")}): ${title}Impl {
+export function ${title}(${requiredNoType.map(key => `${key}: I${title}['${key}']`).join(", ")}): ${title}Impl {
   return new ${title}Impl({
       type: "${properties.type.enum[0]}",
       ${requiredNoType
@@ -93,48 +91,20 @@ export function ${title}(${requiredNoType.join(", ")}): ${title}Impl {
   });
 }
 
-export class ${title}Impl extends Component<I${title}> {
+class ${title}BaseImpl extends Component<I${title}> {
     ${propertiesNotRequired
       .map(key => {
         if (/^on[A-Z]/.test(key)) {
           return `${key}(action: string, props?: { [k: string]: unknown; }) { return this.setListener("${key}", action, props); }`;
         }
-        return `${key}(${key}) {
+        return `${key}(${key}: I${title}['${key}']) {
         this.model.${key} = ${key};
         return this;
     }`;
       })
       .join("\n    ")}
-}`;
 }
 
-function getInterfaceTypes(title) {
-  const program = ts.createProgram(['./lib/component.ts'], {
-    strict: true,
-    noEmitOnError: true,
-    target: ts.ScriptTarget.ES2015
-  });
-  const sourceFile = program.getSourceFile('./lib/component.ts');
-  console.log("sourceFile", sourceFile.fileName);
-  const typeChecker = program.getTypeChecker();
-  const properties = [];
-  sourceFile.forEachChild(
-    child => {
-      if (!ts.isInterfaceDeclaration(child)) return;
-      const name = child.name.text;
-      if (name!=title) return;
-      // console.log("child", name, Object.keys(child));
-      child.members.forEach(field => {
-        console.log(field.name.text, Object.keys(field));
-        properties.push(field.name.text);
-      });
-    });
-  // console.log("typeArguments", sourceFile.typeArguments);
-  // ts.visitEachChild(sourceFile, childNode => {
-
-  // }, con)
-  // const type = typeChecker.getTypeFromTypeNode(sourceFile);
-  // console.log("type", type);
-  return properties;
+export class ${title}Impl extends ${title}BaseImpl {}
+`;
 }
-

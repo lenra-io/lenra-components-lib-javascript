@@ -49,7 +49,7 @@ class ButtonImpl extends Component<IButton> {
     return this.setListener("onPressed", action, props);
   }
 
-  constructor(text: string) {
+  constructor(text: IButton['text']) {
     super({
       type: "button",
       text: text,
