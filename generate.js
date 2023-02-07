@@ -2,7 +2,6 @@ const { compileFromFile } = require("json-schema-to-typescript");
 const fs = require("fs");
 const components = require("./dist/components");
 const path = require("path");
-const ts = require('typescript');
 
 const API_PATH = path.resolve("components-api", "api");
 const COMPONENTS_PATH = path.join(API_PATH, "components");
