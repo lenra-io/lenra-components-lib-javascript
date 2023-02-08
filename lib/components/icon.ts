@@ -1,25 +1,14 @@
-import { Icon as IIcon, IconData } from "../component";
-import { Component } from "./component";
-export { IIcon };
+import { IIcon, IconBaseImpl } from './icon.base'
 
-export class Icon extends Component<IIcon> {
-  size(size: number) {
-    this.model.size = size;
-    return this;
-  }
-  color(color: number) {
-    this.model.color = color;
-    return this;
-  }
-  semanticLabel(semanticLabel: string) {
-    this.model.semanticLabel = semanticLabel;
-    return this;
-  }
+export { IIcon }
 
-  static new(value: IconData): Icon {
-    return new Icon({
+export function Icon(value: IIcon['value']): IconImpl {
+  return new IconImpl({
       type: "icon",
       value: value,
-    });
-  }
+  });
+}
+
+export class IconImpl extends IconBaseImpl {
+  // Add here custom implementations
 }

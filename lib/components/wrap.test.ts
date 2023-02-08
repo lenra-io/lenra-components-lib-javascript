@@ -4,14 +4,14 @@ import { checkComponent } from "./component.test.lib";
 import { Button } from "./button";
 
 test("empty", () => {
-  checkComponent(Wrap.new(), {
+  checkComponent(Wrap(), {
     type: "wrap",
     children: [],
   });
 });
 
 test("children", () => {
-  checkComponent(Wrap.new(Button.new("Test").onPressed("test")), {
+  checkComponent(Wrap(Button("Test").onPressed("test")), {
     type: "wrap",
     children: [
       {

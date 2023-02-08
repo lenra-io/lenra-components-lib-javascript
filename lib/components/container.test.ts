@@ -4,14 +4,14 @@ import { checkComponent } from "./component.test.lib";
 import { Button } from "./button";
 
 test("basic", () => {
-  checkComponent(Container.new(), {
+  checkComponent(Container(), {
     type: "container",
   });
 });
 
 test("child", () => {
   const text = "My text";
-  checkComponent(Container.new(Button.new("Test").onPressed("test")), {
+  checkComponent(Container(Button("Test").onPressed("test")), {
     type: "container",
     child: {
       type: "button",
@@ -25,7 +25,7 @@ test("child", () => {
 
 test("card", () => {
   const text = "My text";
-  checkComponent(Container.card(Button.new("Test").onPressed("test")), {
+  checkComponent(Container.card(Button("Test").onPressed("test")), {
     type: "container",
     border: {
       top: {

@@ -2,7 +2,7 @@
   "name": "@lenra/components",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Lenra's components JavaScript lib",
   "keywords": [
     "Lenra",
@@ -14,7 +14,6 @@
     "generate": "npm run build && node generate.js",
     "build": "tsc",
     "test": "jest",
-    "prettify": "npx prettier . --write",
     "prepublish": "npm run build"
   },
   "devDependencies": {
