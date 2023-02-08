@@ -12,6 +12,7 @@ export function Button(text: IButton['text']): ButtonImpl {
 }
 
 export class ButtonImpl extends ButtonBaseImpl {
+  // Add here custom implementations
   disable() {
     this.model.disabled = true;
     return this;
