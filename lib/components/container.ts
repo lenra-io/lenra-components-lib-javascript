@@ -40,6 +40,7 @@ Container.card = function <T extends Component1>(child?: Component<T> | T): Cont
 }
 
 export class ContainerImpl extends ContainerBaseImpl {
+  // Add here custom implementations
   child<T extends Component1>(child: Component<T> | T) {
     return super.child(Component.normalize(child));
   }
