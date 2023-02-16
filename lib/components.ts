@@ -1,3 +1,4 @@
+export * from './components/component';
 export * from './components/actionable';
 export * from './components/button';
 export * from './components/checkbox';

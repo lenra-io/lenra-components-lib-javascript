@@ -1,4 +1,6 @@
-import { Component1 } from "../component";
+import { Component1 as IComponent } from "../component";
+
+export { IComponent }
 
 export abstract class Component<T> {
   protected model: T;
@@ -21,7 +23,7 @@ export abstract class Component<T> {
     return this;
   }
 
-  static normalize<T extends Component1>(child: Component<T> | T): T {
+  static normalize<T extends IComponent>(child: Component<T> | T): T {
     if (child instanceof Component) {
       return child.toJSON();
     }
