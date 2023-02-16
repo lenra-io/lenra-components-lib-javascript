@@ -4,7 +4,7 @@ import { IStack, StackBaseImpl } from './stack.base'
 
 export { IStack }
 
-export function Stack<T extends Component1>(...children: (Component<T> | T)[]): StackImpl {
+export function Stack(children: (Component<Component1> | Component1)[] = []): StackImpl {
   return new StackImpl({
     type: "stack",
     children: children.map(Component.normalize),

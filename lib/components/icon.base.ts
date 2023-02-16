@@ -16,4 +16,8 @@ export class IconBaseImpl extends Component<IIcon> {
         this.model.semanticLabel = semanticLabel;
         return this;
     }
+    style(style: IIcon['style']) {
+        this.model.style = style;
+        return this;
+    }
 }

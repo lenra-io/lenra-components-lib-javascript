@@ -11,7 +11,7 @@ test("empty", () => {
 });
 
 test("children", () => {
-  checkComponent(Wrap(Button("Test").onPressed("test")), {
+  checkComponent(Wrap([Button("Test").onPressed("test")]), {
     type: "wrap",
     children: [
       {
