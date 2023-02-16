@@ -6,7 +6,7 @@
  */
 
 /**
- * The component abstract type
+ * Any component
  */
 export type Component =
   | Actionable
@@ -32,7 +32,7 @@ export type Component =
   | View
   | Wrap;
 /**
- * The component abstract type
+ * Any component
  */
 export type Component1 =
   | Actionable
@@ -71,15 +71,6 @@ export type Style = "primary" | "secondary" | "tertiary";
 export type Color = number;
 /**
  * The value of the Icon
- */
-export type IconData =
-  | IconName
-  | {
-      name: IconName;
-      style?: "filled" | "sharp" | "rounded" | "outlined";
-    };
-/**
- * All of the possible values for an Icon.
  */
 export type IconName =
   | "ac_unit"
@@ -1984,7 +1975,7 @@ export type Alignment1 =
   | "topLeft"
   | "topRight";
 /**
- * The component abstract type
+ * Any component
  */
 export type Component2 =
   | Actionable
@@ -2026,13 +2017,17 @@ export type Color3 = number;
  */
 export type Color4 = number;
 /**
+ * Color type
+ */
+export type Color5 = number;
+/**
  * The StackFit enum.
  */
 export type StackFit = "expand" | "loose" | "passthrough";
 /**
  * Color type
  */
-export type Color5 = number;
+export type Color6 = number;
 /**
  * Allows you to underline, overline or strike out the text.
  */
@@ -2040,7 +2035,7 @@ export type TextDecoration = "lineThrough" | "overline" | "underline" | "none";
 /**
  * Color type
  */
-export type Color6 = number;
+export type Color7 = number;
 /**
  * The style in which to draw a text decoration.
  */
@@ -2123,11 +2118,11 @@ export type AutofillHints = (
 /**
  * Color type
  */
-export type Color7 = number;
+export type Color8 = number;
 /**
  * Color type
  */
-export type Color8 = number;
+export type Color9 = number;
 /**
  * Defines how the floating label should be displayed.
  */
@@ -2135,15 +2130,11 @@ export type FloatingLabelBehavior = "always" | "auto" | "never";
 /**
  * Color type
  */
-export type Color9 = number;
+export type Color10 = number;
 /**
  * In which direction the elements should be placed following the horizontal axis.
  */
 export type TextDirection1 = "ltr" | "rtl";
-/**
- * Color type
- */
-export type Color10 = number;
 /**
  * Color type
  */
@@ -2156,6 +2147,10 @@ export type Color12 = number;
  * Color type
  */
 export type Color13 = number;
+/**
+ * Color type
+ */
+export type Color14 = number;
 /**
  * The appearance of the keyboard.
  */
@@ -2236,7 +2231,7 @@ export type FilterQuality = "high" | "medium" | "low" | "none";
  */
 export type BoxFit = "contain" | "cover" | "fill" | "fitHeight" | "fitWidth" | "none" | "scaleDown";
 /**
- * The component abstract type
+ * Any component
  */
 export type Component3 =
   | Actionable
@@ -2262,7 +2257,7 @@ export type Component3 =
   | View
   | Wrap;
 /**
- * The component abstract type
+ * Any component
  */
 export type Component4 =
   | Actionable
@@ -2366,7 +2361,11 @@ export interface Icon {
    * The semantic label for the Icon. This will be announced when using accessibility mode.
    */
   semanticLabel?: string;
-  value: IconData;
+  value: IconName;
+  /**
+   * The style of the Icon
+   */
+  style?: "filled" | "sharp" | "rounded" | "outlined";
 }
 /**
  * Element of type Checkbox
@@ -2795,6 +2794,7 @@ export interface RadioStyle {
   activeColor?: Color2;
   focusColor?: Color3;
   hovercolor?: Color4;
+  unselectedColor?: Color5;
   /**
    * The splash radius of the radio button
    */
@@ -2958,9 +2958,9 @@ export interface Text {
  * The style of the Text.
  */
 export interface TextStyle {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3120,7 +3120,7 @@ export interface Listener5 {
  * The style of the Textfield.
  */
 export interface TextFieldStyle {
-  cursorColor?: Color7;
+  cursorColor?: Color8;
   /**
    * The height of the cursor.
    */
@@ -3186,14 +3186,14 @@ export interface InputDecoration {
    * The error text to display when the input has an error.
    */
   errorText?: string;
-  fillColor?: Color8;
+  fillColor?: Color9;
   /**
    * Whether the input is filled with fillColor.
    */
   filled?: boolean;
   floatingLabelBehavior?: FloatingLabelBehavior;
   floatingLabelStyle?: TextStyle3;
-  focusColor?: Color9;
+  focusColor?: Color10;
   focusedBorder?: InputBorder4;
   focusedErrorBorder?: InputBorder5;
   /**
@@ -3215,9 +3215,9 @@ export interface InputDecoration {
    */
   hintText?: string;
   hintTextDirection?: TextDirection1;
-  hoverColor?: Color10;
+  hoverColor?: Color11;
   icon?: Icon;
-  iconColor?: Color11;
+  iconColor?: Color12;
   /**
    * Whether the decoration is the same size as the input field.
    */
@@ -3234,7 +3234,7 @@ export interface InputDecoration {
   labelText?: string;
   prefix?: Component1;
   prefixIcon?: Icon;
-  prefixIconColor?: Color12;
+  prefixIconColor?: Color13;
   prefixIconConstraints?: BoxConstraints2;
   prefixStyle?: TextStyle7;
   /**
@@ -3249,7 +3249,7 @@ export interface InputDecoration {
     [k: string]: unknown;
   };
   suffixIcon?: Icon;
-  suffixIconColor?: Color13;
+  suffixIconColor?: Color14;
   suffixIconConstraints?: BoxConstraints3;
   suffixStyle?: TextStyle8;
   /**
@@ -3299,9 +3299,9 @@ export interface Padding1 {
  * The style of the Text.
  */
 export interface TextStyle1 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3377,9 +3377,9 @@ export interface InputBorder3 {
  * The style of the Text.
  */
 export interface TextStyle2 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3431,9 +3431,9 @@ export interface TextStyle2 {
  * The style of the Text.
  */
 export interface TextStyle3 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3501,9 +3501,9 @@ export interface InputBorder5 {
  * The style of the Text.
  */
 export interface TextStyle4 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3555,9 +3555,9 @@ export interface TextStyle4 {
  * The style of the Text.
  */
 export interface TextStyle5 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3609,9 +3609,9 @@ export interface TextStyle5 {
  * The style of the Text.
  */
 export interface TextStyle6 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3684,9 +3684,9 @@ export interface BoxConstraints2 {
  * The style of the Text.
  */
 export interface TextStyle7 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3759,9 +3759,9 @@ export interface BoxConstraints3 {
  * The style of the Text.
  */
 export interface TextStyle8 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
@@ -3860,9 +3860,9 @@ export interface StrutStyle {
  * The style of the Text.
  */
 export interface TextStyle9 {
-  color?: Color5;
+  color?: Color6;
   decoration?: TextDecoration;
-  decorationColor?: Color6;
+  decorationColor?: Color7;
   decorationStyle?: TextDecorationStyle;
   /**
    * The thickness of the decoration.
