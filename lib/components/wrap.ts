@@ -4,7 +4,7 @@ import { IWrap, WrapBaseImpl } from './wrap.base'
 
 export { IWrap }
 
-export function Wrap(...children: (Component<Component1> | Component1)[]): WrapImpl {
+export function Wrap(children: (Component<Component1> | Component1)[] = []): WrapImpl {
   return new WrapImpl({
     type: "wrap",
     children: children.map(Component.normalize),

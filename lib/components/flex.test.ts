@@ -13,10 +13,10 @@ test("empty", () => {
 
 test("children", () => {
   checkComponent(
-    Flex(
+    Flex([
       Text("My text"),
       Button("Test").onPressed("test")
-    ),
+    ]),
     {
       type: "flex",
       children: [
