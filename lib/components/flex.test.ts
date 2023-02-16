@@ -2,6 +2,7 @@ import { test } from "@jest/globals";
 import { Flex } from "./flex";
 import { checkComponent } from "./component.test.lib";
 import { Button } from "./button";
+import { Text } from "./text";
 
 test("empty", () => {
   checkComponent(Flex(), {
@@ -11,16 +12,25 @@ test("empty", () => {
 });
 
 test("children", () => {
-  checkComponent(Flex(Button("Test").onPressed("test")), {
-    type: "flex",
-    children: [
-      {
-        type: "button",
-        text: "Test",
-        onPressed: {
-          action: "test",
+  checkComponent(
+    Flex(
+      Text("My text"),
+      Button("Test").onPressed("test")
+    ),
+    {
+      type: "flex",
+      children: [
+        {
+          type: "text",
+          value: "My text"
         },
-      },
-    ],
-  });
+        {
+          type: "button",
+          text: "Test",
+          onPressed: {
+            action: "test",
+          },
+        },
+      ],
+    });
 });

@@ -4,7 +4,7 @@ import { IFlex, FlexBaseImpl } from './flex.base'
 
 export { IFlex }
 
-export function Flex<T extends Component1>(...children: (Component<T> | T)[]): FlexImpl {
+export function Flex(...children: (Component<Component1> | Component1)[]): FlexImpl {
   return new FlexImpl({
     type: "flex",
     children: children.map(Component.normalize),
@@ -12,7 +12,7 @@ export function Flex<T extends Component1>(...children: (Component<T> | T)[]): F
 }
 
 export class FlexImpl extends FlexBaseImpl {
-  addChild<T extends Component1>(child: Component<T> | T) {
+  addChild(child: Component<Component1> | Component1) {
     this.model.children.push(Component.normalize(child));
     return this;
   }
