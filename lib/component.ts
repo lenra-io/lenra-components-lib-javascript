@@ -4081,6 +4081,7 @@ export interface View {
    */
   name: string;
   props?: Props;
+  find?: Find;
   /**
    * The query to apply to the data.
    */
@@ -4098,6 +4099,27 @@ export interface View {
  */
 export interface Props {
   [k: string]: unknown;
+}
+/**
+ * Find query.
+ */
+export interface Find {
+  /**
+   * The query to apply to the data.
+   */
+  query?: {
+    [k: string]: unknown;
+  };
+  /**
+   * the collection where the query is applied
+   */
+  coll: string;
+  /**
+   * Filter data object.
+   */
+  projection?: {
+    [k: string]: unknown;
+  };
 }
 /**
  * Element of type Wrap

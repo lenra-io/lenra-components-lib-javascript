@@ -8,6 +8,10 @@ export class ViewBaseImpl extends Component<IView> {
         this.model.props = props;
         return this;
     }
+    find(find: IView['find']) {
+        this.model.find = find;
+        return this;
+    }
     query(query: IView['query']) {
         this.model.query = query;
         return this;
