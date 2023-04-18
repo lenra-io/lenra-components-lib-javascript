@@ -13,9 +13,11 @@ test("data", () => {
   checkComponent(View("test").data("coll", { name: "my name" }), {
     "type": "view",
     "name": "test",
-    "coll": "coll",
-    "query": {
-      "name": "my name"
+    "find": {
+      "coll": "coll",
+      "query": {
+        "name": "my name"
+      }
     }
   });
 });
