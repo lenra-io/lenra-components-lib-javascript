@@ -11,9 +11,8 @@ export function View(name: IView['name']): ViewImpl {
 
 export class ViewImpl extends ViewBaseImpl {
   // Add here custom implementations
-  data(coll: string, query?: { [k: string]: unknown }) {
-    this.coll(coll);
-    if (query) this.query(query);
+  data(coll: string, query?: { [k: string]: unknown }, projection?: { [k: string]: unknown }) {
+    this.find({ coll, query, projection });
     return this;
   }
 }

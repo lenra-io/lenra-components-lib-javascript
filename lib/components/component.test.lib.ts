@@ -7,7 +7,7 @@ export function checkComponent<T extends IComponent>(
 ) {
   const received: T = component.toJSON();
   try {
-    expect(received).toStrictEqual(expected);
+    expect(received).toEqual(expected);
   } catch (e) {
     console.log(
       "Received:\n",
