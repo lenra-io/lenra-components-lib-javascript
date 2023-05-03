@@ -4,6 +4,9 @@ import { Component } from './component';
 export { IButton }
 
 export class ButtonBaseImpl extends Component<IButton> {
+    /**
+     * The button is disabled if true
+     */
     disabled(disabled: IButton['disabled']) {
         this.model.disabled = disabled;
         return this;
@@ -25,6 +28,9 @@ export class ButtonBaseImpl extends Component<IButton> {
         this.model.rightIcon = rightIcon;
         return this;
     }
+    /**
+     * Whether the button is a submit button for a form.
+     */
     submit(submit: IButton['submit']) {
         this.model.submit = submit;
         return this;

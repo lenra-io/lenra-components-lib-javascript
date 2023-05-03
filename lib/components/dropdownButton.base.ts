@@ -4,6 +4,9 @@ import { Component } from './component';
 export { IDropdownButton }
 
 export class DropdownButtonBaseImpl extends Component<IDropdownButton> {
+    /**
+     * If true, the dropdown button is disabled
+     */
     disabled(disabled: IDropdownButton['disabled']) {
         this.model.disabled = disabled;
         return this;

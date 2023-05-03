@@ -12,10 +12,16 @@ export class WrapBaseImpl extends Component<IWrap> {
         this.model.crossAxisAlignment = crossAxisAlignment;
         return this;
     }
+    /**
+     * The spacing between each child of the wrap.
+     */
     spacing(spacing: IWrap['spacing']) {
         this.model.spacing = spacing;
         return this;
     }
+    /**
+     * The spacing between each run of the wrap.
+     */
     runSpacing(runSpacing: IWrap['runSpacing']) {
         this.model.runSpacing = runSpacing;
         return this;

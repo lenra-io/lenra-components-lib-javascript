@@ -113,10 +113,23 @@ export { I${title} }
 export class ${title}BaseImpl extends Component<I${title}> {
     ${propertiesNotRequired
       .map(key => {
-        if (/^on[A-Z]/.test(key)) {
-          return `${key}(action: string, props?: { [k: string]: unknown; }) { return this.setListener("${key}", action, props); }`;
+        const jsdocLines = [];
+        const property = properties[key];
+        let jsdoc = '';
+        if (property.description) jsdocLines.push(property.description);
+        if (property.deprecated) jsdocLines.push(`@deprecated ${property.deprecatedComment ?? ""}`);
+        if (jsdocLines.length > 0) {
+          jsdoc = `/**
+${jsdocLines
+              .flatMap(line => line.split('\n'))
+              .map(line => `     * ${line}`).join('\n')}
+     */
+    `;
         }
-        return `${key}(${key}: I${title}['${key}']) {
+        if (/^on[A-Z]/.test(key)) {
+          return `${jsdoc}${key}(action: string, props?: { [k: string]: unknown; }) { return this.setListener("${key}", action, props); }`;
+        }
+        return `${jsdoc}${key}(${key}: I${title}['${key}']) {
         this.model.${key} = ${key};
         return this;
     }`;
