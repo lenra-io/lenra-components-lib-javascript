@@ -15,4 +15,16 @@ export class ViewImpl extends ViewBaseImpl {
     this.find({ coll, query, projection });
     return this;
   }
+
+  coll(coll: string): this {
+    if (!this.model.find) this.model.find = { coll };
+    else this.model.find.coll = coll;
+    return this;
+  }
+
+  query(query: { [k: string]: unknown; }): this {
+    if (!this.model.find) this.model.find = { coll: "", query };
+    else this.model.find.query = query;
+    return this;
+  }
 }

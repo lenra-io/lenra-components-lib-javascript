@@ -4,6 +4,9 @@ import { Component } from './component';
 export { IFlexible }
 
 export class FlexibleBaseImpl extends Component<IFlexible> {
+    /**
+     * How a flexible child is inscribed into the available space.
+     */
     flex(flex: IFlexible['flex']) {
         this.model.flex = flex;
         return this;
