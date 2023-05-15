@@ -11,6 +11,7 @@
 export type Component =
   | Actionable
   | Button
+  | Carousel
   | Checkbox
   | Container
   | DropdownButton
@@ -37,6 +38,7 @@ export type Component =
 export type Component1 =
   | Actionable
   | Button
+  | Carousel
   | Checkbox
   | Container
   | DropdownButton
@@ -1913,6 +1915,10 @@ export type IconName =
   | "zoom_out_map"
   | "zoom_out_outlined";
 /**
+ * The direction of the component (horizontal/vertical)
+ */
+export type Direction = "horizontal" | "vertical";
+/**
  * Color type
  */
 export type Color1 = number;
@@ -1941,10 +1947,6 @@ export type Alignment =
  * The BoxShape enum, used to define the shape of a box.
  */
 export type BoxShape = "circle" | "rectangle";
-/**
- * The direction of the component (horizontal/vertical)
- */
-export type Direction = "horizontal" | "vertical";
 /**
  * In which direction the elements should be placed following the horizontal axis.
  */
@@ -1980,6 +1982,7 @@ export type Alignment1 =
 export type Component2 =
   | Actionable
   | Button
+  | Carousel
   | Checkbox
   | Container
   | DropdownButton
@@ -2236,6 +2239,7 @@ export type BoxFit = "contain" | "cover" | "fill" | "fitHeight" | "fitWidth" | "
 export type Component3 =
   | Actionable
   | Button
+  | Carousel
   | Checkbox
   | Container
   | DropdownButton
@@ -2262,6 +2266,7 @@ export type Component3 =
 export type Component4 =
   | Actionable
   | Button
+  | Carousel
   | Checkbox
   | Container
   | DropdownButton
@@ -2366,6 +2371,49 @@ export interface Icon {
    * The style of the Icon
    */
   style?: "filled" | "sharp" | "rounded" | "outlined";
+}
+/**
+ * Element of type Carousel
+ */
+export interface Carousel {
+  /**
+   * The identifier of the component
+   */
+  type: "carousel";
+  /**
+   * The children
+   */
+  children: Component1[];
+  options?: CarouselOptions;
+}
+/**
+ * Element of type CarouselOptions
+ */
+export interface CarouselOptions {
+  height?: number;
+  enlargeCenterPage?: boolean;
+  autoPlay?: boolean;
+  autoPlayInterval?: Duration;
+  autoPlayAnimationDuration?: Duration;
+  pauseAutoPlayOnTouch?: boolean;
+  aspectRatio?: number;
+  initialPage?: number;
+  enableInfiniteScroll?: boolean;
+  reverse?: boolean;
+  scrollDirection?: Direction;
+  viewportFraction?: number;
+  enlargeStrategy?: "scale" | "height" | "zoom";
+}
+/**
+ * Element of type Duration
+ */
+export interface Duration {
+  days?: number;
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
+  milliseconds?: number;
+  microseconds?: number;
 }
 /**
  * Element of type Checkbox
@@ -4092,7 +4140,12 @@ export interface View {
    * the collection where the query is applied
    */
   coll?: string;
-  context?: boolean;
+  /**
+   * The context projection. This field represents the projection of the context, allowing selective retrieval of specific elements. It is a map that specifies the desired elements to be included in the projection.
+   */
+  context?: {
+    [k: string]: unknown;
+  };
 }
 /**
  * Parameters passed to the listener
