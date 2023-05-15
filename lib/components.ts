@@ -21,3 +21,4 @@ export * from './components/textfield';
 export * from './components/toggle';
 export * from './components/view';
 export * from './components/wrap';
+export * from './components/carousel';

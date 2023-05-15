@@ -31,6 +31,9 @@ export class ViewBaseImpl extends Component<IView> {
         this.model.coll = coll;
         return this;
     }
+    /**
+     * The context projection. This field represents the projection of the context, allowing selective retrieval of specific elements. It is a map that specifies the desired elements to be included in the projection.
+     */
     context(context: IView['context']) {
         this.model.context = context;
         return this;
