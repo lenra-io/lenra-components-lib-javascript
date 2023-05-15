@@ -4092,6 +4092,11 @@ export interface View {
    * the collection where the query is applied
    */
   coll?: string;
+  /**
+   * The context projection. 
+   * 
+   * This field represents the projection of the context, allowing selective retrieval of specific elements. It is a map that specifies the desired elements to be included in the projection.
+   */
   context?: Object;
 }
 /**
