@@ -4092,7 +4092,7 @@ export interface View {
    * the collection where the query is applied
    */
   coll?: string;
-  context?: boolean;
+  context?: Object;
 }
 /**
  * Parameters passed to the listener
