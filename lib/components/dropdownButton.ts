@@ -6,7 +6,7 @@ export { IDropdownButton }
 
 export function DropdownButton(text: IDropdownButton['text'], child: IDropdownButton['child']): DropdownButtonImpl {
   return new DropdownButtonImpl({
-    type: "dropdownButton",
+    _type: "dropdownButton",
     text: text,
     child: child,
   });

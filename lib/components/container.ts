@@ -1,22 +1,22 @@
 import { border, borderRadius, colors, padding } from '..';
 import { Colors } from '../colors';
-import { BorderRadius, BoxShadow, BoxShape, Component1 } from '../component';
+import { BorderRadius, BoxShadow, BoxShape, LenraComponent } from '../component';
 import { Component } from './component';
 import { IContainer, ContainerBaseImpl } from './container.base'
 
 export { IContainer }
 
-export function Container<T extends Component1>(child?: Component<T> | T): ContainerImpl {
+export function Container<T extends LenraComponent>(child?: Component<T> | T): ContainerImpl {
   const el = new ContainerImpl({
-    type: "container",
+    _type: "container",
   });
   if (child) el.child(child);
   return el;
 }
 
-Container.card = function <T extends Component1>(child?: Component<T> | T): ContainerImpl {
+Container.card = function <T extends LenraComponent>(child?: Component<T> | T): ContainerImpl {
   const el = new ContainerImpl({
-    type: "container",
+    _type: "container",
   })
     .border(
       border.all({
@@ -41,7 +41,7 @@ Container.card = function <T extends Component1>(child?: Component<T> | T): Cont
 
 export class ContainerImpl extends ContainerBaseImpl {
   // Add here custom implementations
-  child<T extends Component1>(child: Component<T> | T) {
+  child<T extends LenraComponent>(child: Component<T> | T) {
     return super.child(Component.normalize(child));
   }
 

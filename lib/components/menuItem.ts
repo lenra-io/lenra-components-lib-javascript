@@ -4,7 +4,7 @@ export { IMenuItem }
 
 export function MenuItem(text: IMenuItem['text']): MenuItemImpl {
   return new MenuItemImpl({
-      type: "menuItem",
+      _type: "menuItem",
       text: text,
   });
 }

@@ -1,4 +1,4 @@
-import { Component1 as IComponent } from "../component";
+import { LenraComponent as IComponent } from "../component";
 
 export { IComponent }
 
@@ -13,11 +13,12 @@ export abstract class Component<T> {
 
   protected setListener(
     event: string,
-    action: string,
+    name: string,
     props?: { [k: string]: unknown }
   ) {
     this.model[event] = {
-      action,
+      _type: "listener",
+      name,
     };
     if (props !== undefined) this.model[event].props = props;
     return this;

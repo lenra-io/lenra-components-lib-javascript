@@ -4,7 +4,7 @@ export { IRadio }
 
 export function Radio(value: IRadio['value'], groupValue: IRadio['groupValue']): RadioImpl {
   return new RadioImpl({
-    type: "radio",
+    _type: "radio",
     value: value,
     groupValue: groupValue,
   });

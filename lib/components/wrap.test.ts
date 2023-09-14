@@ -5,20 +5,21 @@ import { Button } from "./button";
 
 test("empty", () => {
   checkComponent(Wrap(), {
-    type: "wrap",
+    _type: "wrap",
     children: [],
   });
 });
 
 test("children", () => {
   checkComponent(Wrap([Button("Test").onPressed("test")]), {
-    type: "wrap",
+    _type: "wrap",
     children: [
       {
-        type: "button",
+        _type: "button",
         text: "Test",
         onPressed: {
-          action: "test",
+          _type: "listener",
+          name: "test",
         },
       },
     ],

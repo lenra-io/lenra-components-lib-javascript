@@ -1,12 +1,12 @@
-import { Component1 } from '../component';
+import { LenraComponent } from '../component';
 import { Component } from './component';
 import { IStack, StackBaseImpl } from './stack.base'
 
 export { IStack }
 
-export function Stack(children: (Component<Component1> | Component1)[] = []): StackImpl {
+export function Stack(children: (Component<LenraComponent> | LenraComponent)[] = []): StackImpl {
   return new StackImpl({
-    type: "stack",
+    _type: "stack",
     children: children.map(Component.normalize),
   });
 }

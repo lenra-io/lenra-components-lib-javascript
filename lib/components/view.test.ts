@@ -4,14 +4,14 @@ import { checkComponent } from "./component.test.lib";
 
 test("basic", () => {
   checkComponent(View("test"), {
-    type: "view",
+    _type: "view",
     name: "test",
   });
 });
 
-test("data", () => {
-  checkComponent(View("test").data("coll", { name: "my name" }), {
-    "type": "view",
+test("find", () => {
+  checkComponent(View("test").find("coll", { name: "my name" }), {
+    "_type": "view",
     "name": "test",
     "find": {
       "coll": "coll",

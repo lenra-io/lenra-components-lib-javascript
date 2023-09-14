@@ -1,12 +1,12 @@
-import { Component1 } from '../component';
+import { LenraComponent } from '../component';
 import { Component } from './component';
 import { IWrap, WrapBaseImpl } from './wrap.base'
 
 export { IWrap }
 
-export function Wrap(children: (Component<Component1> | Component1)[] = []): WrapImpl {
+export function Wrap(children: (Component<LenraComponent> | LenraComponent)[] = []): WrapImpl {
   return new WrapImpl({
-    type: "wrap",
+    _type: "wrap",
     children: children.map(Component.normalize),
   });
 }

@@ -4,7 +4,7 @@ import { checkComponent } from "./component.test.lib";
 
 test("basic", () => {
   checkComponent(Button("My text"), {
-    type: "button",
+    _type: "button",
     text: "My text",
   });
 });
@@ -12,10 +12,11 @@ test("basic", () => {
 test("onPressed", () => {
   const text = "My text";
   checkComponent(Button("My text").onPressed("test"), {
-    type: "button",
+    _type: "button",
     text: "My text",
     onPressed: {
-      action: "test",
+      _type: "listener",
+      name: "test",
     },
   });
 });

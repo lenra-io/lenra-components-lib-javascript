@@ -4,7 +4,7 @@ export { IToggle }
 
 export function Toggle(value: IToggle['value']): ToggleImpl {
   return new ToggleImpl({
-      type: "toggle",
+      _type: "toggle",
       value: value,
   });
 }

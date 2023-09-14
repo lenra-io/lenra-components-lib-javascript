@@ -5,20 +5,21 @@ import { Button } from "./button";
 
 test("empty", () => {
   checkComponent(Stack(), {
-    type: "stack",
+    _type: "stack",
     children: [],
   });
 });
 
 test("children", () => {
   checkComponent(Stack([Button("Test").onPressed("test")]), {
-    type: "stack",
+    _type: "stack",
     children: [
       {
-        type: "button",
+        _type: "button",
         text: "Test",
         onPressed: {
-          action: "test",
+          _type: "listener",
+          name: "test",
         },
       },
     ],

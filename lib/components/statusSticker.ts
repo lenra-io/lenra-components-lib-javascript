@@ -4,7 +4,7 @@ export { IStatusSticker }
 
 export function StatusSticker(status: IStatusSticker['status']): StatusStickerImpl {
   return new StatusStickerImpl({
-      type: "statusSticker",
+      _type: "statusSticker",
       status: status,
   });
 }

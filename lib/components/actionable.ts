@@ -1,12 +1,12 @@
-import { Component1 } from '../component';
+import { LenraComponent } from '../component';
 import { IActionable, ActionableBaseImpl } from './actionable.base'
 import { Component } from './component';
 
 export { IActionable }
 
-export function Actionable<T extends Component1>(child: Component<T> | T): ActionableImpl {
+export function Actionable<T extends LenraComponent>(child: Component<T> | T): ActionableImpl {
   return new ActionableImpl({
-    type: "actionable",
+    _type: "actionable",
     child: Component.normalize(child),
   });
 }

@@ -8,34 +8,7 @@
 /**
  * Any component
  */
-export type Component =
-  | Actionable
-  | Button
-  | Carousel
-  | Checkbox
-  | Container
-  | DropdownButton
-  | Flex
-  | Flexible
-  | Form
-  | Icon
-  | Image
-  | Menu
-  | MenuItem
-  | OverlayEntry
-  | Radio
-  | Slider
-  | Stack
-  | StatusSticker
-  | Text
-  | TextField
-  | Toggle
-  | View
-  | Wrap;
-/**
- * Any component
- */
-export type Component1 =
+export type LenraComponent =
   | Actionable
   | Button
   | Carousel
@@ -1979,7 +1952,7 @@ export type Alignment1 =
 /**
  * Any component
  */
-export type Component2 =
+export type LenraComponent1 =
   | Actionable
   | Button
   | Carousel
@@ -2236,7 +2209,7 @@ export type BoxFit = "contain" | "cover" | "fill" | "fitHeight" | "fitWidth" | "
 /**
  * Any component
  */
-export type Component3 =
+export type LenraComponent2 =
   | Actionable
   | Button
   | Carousel
@@ -2263,7 +2236,7 @@ export type Component3 =
 /**
  * Any component
  */
-export type Component4 =
+export type LenraComponent3 =
   | Actionable
   | Button
   | Carousel
@@ -2299,17 +2272,78 @@ export interface Actionable {
   /**
    * The identifier of the component
    */
-  type: "actionable";
-  child: Component1;
-  onPressed?: Listener11;
-  onDoublePressed?: Listener12;
-  onLongPressed?: Listener13;
-  onPressedCancel?: Listener14;
-  onHovered?: Listener15;
+  _type: "actionable";
+  child: LenraComponent;
+  onPressed?: Listener;
+  onDoublePressed?: Listener1;
+  onLongPressed?: Listener2;
+  onPressedCancel?: Listener3;
+  onHovered?: Listener4;
   /**
    * Whether the actionable can submit a form.
    */
   submit?: boolean;
+}
+/**
+ * The listener to be called when the actionable is pressed.
+ */
+export interface Listener {
+  _type: "listener";
+  /**
+   * The name of the listener to call
+   */
+  name: string;
+  props?: Props;
+}
+/**
+ * Parameters passed to the listener
+ */
+export interface Props {
+  [k: string]: unknown;
+}
+/**
+ * The listener to be called when the actionable is double pressed.
+ */
+export interface Listener1 {
+  _type: "listener";
+  /**
+   * The name of the listener to call
+   */
+  name: string;
+  props?: Props;
+}
+/**
+ * The listener to be called when the actionable is long pressed.
+ */
+export interface Listener2 {
+  _type: "listener";
+  /**
+   * The name of the listener to call
+   */
+  name: string;
+  props?: Props;
+}
+/**
+ * The listener to be called when the actionable is pressed inside and released outside of the actionable, causing it to cancel the press action.
+ */
+export interface Listener3 {
+  _type: "listener";
+  /**
+   * The name of the listener to call
+   */
+  name: string;
+  props?: Props;
+}
+/**
+ * The listener to be called when the actionable is hovered and when the mouse exits the hoverable area.
+ */
+export interface Listener4 {
+  _type: "listener";
+  /**
+   * The name of the listener to call
+   */
+  name: string;
+  props?: Props;
 }
 /**
  * Element of type Button
@@ -2318,7 +2352,7 @@ export interface Button {
   /**
    * The identifier of the component
    */
-  type: "button";
+  _type: "button";
   /**
    * The value of the text inside the button
    */
@@ -2329,7 +2363,7 @@ export interface Button {
   disabled?: boolean;
   size?: Size;
   mainStyle?: Style;
-  onPressed?: Listener;
+  onPressed?: Listener5;
   leftIcon?: Icon;
   rightIcon?: Icon;
   /**
@@ -2337,26 +2371,22 @@ export interface Button {
    */
   submit?: boolean;
 }
-export interface Listener {
+export interface Listener5 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * The Icon to use
  */
 export interface Icon {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "icon";
+  _type: "icon";
   /**
    * The size of the Icon
    */
@@ -2379,11 +2409,11 @@ export interface Carousel {
   /**
    * The identifier of the component
    */
-  type: "carousel";
+  _type: "carousel";
   /**
    * The children
    */
-  children: Component1[];
+  children: LenraComponent[];
   options?: CarouselOptions;
 }
 /**
@@ -2422,7 +2452,7 @@ export interface Checkbox {
   /**
    * The identifier of the component
    */
-  type: "checkbox";
+  _type: "checkbox";
   /**
    * The default state of the checkbox
    */
@@ -2431,7 +2461,7 @@ export interface Checkbox {
    * Whether the checkbox can have 3 states.
    */
   tristate?: boolean;
-  onPressed?: Listener;
+  onPressed?: Listener5;
   style?: CheckboxStyle;
   materialTapTargetSize?: MaterialTapTargetSize;
   /**
@@ -2482,8 +2512,8 @@ export interface Container {
   /**
    * The identifier of the component
    */
-  type: "container";
-  child?: Component1;
+  _type: "container";
+  child?: LenraComponent;
   alignment?: Alignment;
   border?: Border;
   padding?: Padding;
@@ -2586,7 +2616,7 @@ export interface DropdownButton {
   /**
    * The identifier of the component
    */
-  type: "dropdownButton";
+  _type: "dropdownButton";
   /**
    * The text of the dropdown button
    */
@@ -2597,7 +2627,7 @@ export interface DropdownButton {
   disabled?: boolean;
   size?: Size;
   mainStyle?: Style;
-  child: Component1;
+  child: LenraComponent;
   icon?: Icon;
 }
 /**
@@ -2607,11 +2637,11 @@ export interface Flex {
   /**
    * The identifier of the component
    */
-  type: "flex";
+  _type: "flex";
   /**
    * The children
    */
-  children: Component1[];
+  children: LenraComponent[];
   direction?: Direction;
   /**
    * The alignment along the main axis
@@ -2643,50 +2673,46 @@ export interface Flex {
  */
 export interface Flexible {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "flexible";
+  _type: "flexible";
   /**
    * How a flexible child is inscribed into the available space.
    */
   flex?: number;
   fit?: FlexFit;
-  child: Component1;
+  child: LenraComponent;
 }
 /**
  * Element of type Form
  */
 export interface Form {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "form";
-  child: Component1;
-  onSubmit?: Listener1;
+  _type: "form";
+  child: LenraComponent;
+  onSubmit?: Listener6;
 }
 /**
  * Callback when the user submits the form.
  */
-export interface Listener1 {
+export interface Listener6 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * Element of type Image
  */
 export interface Image {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "image";
+  _type: "image";
   /**
    * The URL to the image. Will fetch the application's image if the URL does not start with `http(s)://`.
    */
@@ -2701,14 +2727,14 @@ export interface Image {
   height?: number;
   alignment?: Alignment1;
   centerSlice?: Rect;
-  errorPlaceholder?: Component2;
+  errorPlaceholder?: LenraComponent1;
   /**
    * Whether to exclude this image from semantics.
    */
   excludeFromSemantics?: boolean;
   filterQuality?: FilterQuality;
   fit?: BoxFit;
-  framePlaceholder?: Component3;
+  framePlaceholder?: LenraComponent2;
   /**
    * Whether the old image (true) or nothing (false) is shown when the image provider changes.
    */
@@ -2717,7 +2743,7 @@ export interface Image {
    * Whether to paint the image with anti-aliasing.
    */
   isAntiAlias?: boolean;
-  loadingPlaceholder?: Component4;
+  loadingPlaceholder?: LenraComponent3;
   repeat?: ImageRepeat;
   /**
    * A semantic description of the image. This is used for TalkBack on Android and VoiceOver on IOS.
@@ -2750,22 +2776,22 @@ export interface Rect {
  */
 export interface Menu {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "menu";
+  _type: "menu";
   /**
    * The menu items
    */
-  children: Component1[];
+  children: LenraComponent[];
 }
 /**
  * Element of type MenuItem
  */
 export interface MenuItem {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "menuItem";
+  _type: "menuItem";
   /**
    * The text of the element
    */
@@ -2779,7 +2805,7 @@ export interface MenuItem {
    */
   disabled?: boolean;
   icon?: Icon;
-  onPressed?: Listener;
+  onPressed?: Listener5;
 }
 /**
  * Element of type OverlayEntry
@@ -2788,8 +2814,8 @@ export interface OverlayEntry {
   /**
    * The identifier of the component
    */
-  type: "overlayEntry";
-  child: Component1;
+  _type: "overlayEntry";
+  child: LenraComponent;
   /**
    * Whether this entry must be included in the tree even if there is a fully opaque entry above it.
    */
@@ -2808,9 +2834,9 @@ export interface OverlayEntry {
  */
 export interface Radio {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "radio";
+  _type: "radio";
   /**
    * Whether the radio will be selected initially.
    */
@@ -2824,7 +2850,7 @@ export interface Radio {
    */
   groupValue: string;
   materialTapTargetSize?: MaterialTapTargetSize1;
-  onPressed?: Listener;
+  onPressed?: Listener5;
   /**
    * Whether the radio is allowed to go from checked to unchecked when clicking on it.
    */
@@ -2856,7 +2882,7 @@ export interface Slider {
   /**
    * The identifier of the component
    */
-  type: "slider";
+  _type: "slider";
   style?: SliderStyle;
   /**
    * Whether the slider should be focused initially.
@@ -2878,9 +2904,9 @@ export interface Slider {
    * The maximum value of the slider.
    */
   max?: number;
-  onChanged?: Listener2;
-  onChangeEnd?: Listener3;
-  onChangeStart?: Listener4;
+  onChanged?: Listener7;
+  onChangeEnd?: Listener8;
+  onChangeStart?: Listener9;
   /**
    * The current value of the slider.
    */
@@ -2901,47 +2927,35 @@ export interface SliderStyle {
 /**
  * The callback to be invoked when the slider value changes.
  */
-export interface Listener2 {
+export interface Listener7 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * The callback to be invoked when the slider is released.
  */
-export interface Listener3 {
+export interface Listener8 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * The callback to be invoked when the slider is pressed.
  */
-export interface Listener4 {
+export interface Listener9 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * Element of type Stack
@@ -2950,11 +2964,11 @@ export interface Stack {
   /**
    * The identifier of the component
    */
-  type: "stack";
+  _type: "stack";
   /**
    * The children of the Stack.
    */
-  children: Component1[];
+  children: LenraComponent[];
   alignment?: Alignment;
   fit?: StackFit;
 }
@@ -2963,9 +2977,9 @@ export interface Stack {
  */
 export interface StatusSticker {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "statusSticker";
+  _type: "statusSticker";
   /**
    * the status of the element
    */
@@ -2976,9 +2990,9 @@ export interface StatusSticker {
  */
 export interface Text {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "text";
+  _type: "text";
   /**
    * the value displayed in the element
    */
@@ -3078,9 +3092,9 @@ export interface Locale {
  */
 export interface TextField {
   /**
-   * The type of the element
+   * The identifier of the component
    */
-  type: "textfield";
+  _type: "textfield";
   /**
    * The value displayed inside the Textfield
    */
@@ -3094,7 +3108,7 @@ export interface TextField {
    * Whether this Textfield should be focused initially.
    */
   autofocus?: boolean;
-  buildCounter?: Listener5;
+  buildCounter?: Listener10;
   style?: TextFieldStyle;
   dragStartBehavior?: DragStartBehavior;
   /**
@@ -3127,11 +3141,11 @@ export interface TextField {
    * Whether to hide the text being edited.
    */
   obscureText?: boolean;
-  onAppPrivateCommand?: Listener6;
-  onChanged?: Listener7;
-  onEditingComplete?: Listener8;
-  onSubmitted?: Listener9;
-  onTap?: Listener10;
+  onAppPrivateCommand?: Listener11;
+  onChanged?: Listener12;
+  onEditingComplete?: Listener13;
+  onSubmitted?: Listener14;
+  onTap?: Listener15;
   /**
    * Whether the text can be changed.
    */
@@ -3152,17 +3166,13 @@ export interface TextField {
 /**
  * Callback that generates a custom counter view.
  */
-export interface Listener5 {
+export interface Listener10 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * The style of the Textfield.
@@ -3274,13 +3284,13 @@ export interface InputDecoration {
    * Whether the decoration is dense.
    */
   isDense?: boolean;
-  label?: Component1;
+  label?: LenraComponent;
   labelStyle?: TextStyle6;
   /**
    * The text that describes the input field.
    */
   labelText?: string;
-  prefix?: Component1;
+  prefix?: LenraComponent;
   prefixIcon?: Icon;
   prefixIconColor?: Color13;
   prefixIconConstraints?: BoxConstraints2;
@@ -3982,77 +3992,57 @@ export interface TextInputType {
 /**
  * This is used to receive a private command from the input method.
  */
-export interface Listener6 {
+export interface Listener11 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * Callback when the user changes the text field value.
  */
-export interface Listener7 {
+export interface Listener12 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * Callback when the user finishes editing the text field.
  */
-export interface Listener8 {
+export interface Listener13 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * Callback when the user tells he is done editing the text field.
  */
-export interface Listener9 {
+export interface Listener14 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * Callback when the user taps on the text field.
  */
-export interface Listener10 {
+export interface Listener15 {
+  _type: "listener";
   /**
-   * The action name to call
+   * The name of the listener to call
    */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
+  name: string;
+  props?: Props;
 }
 /**
  * Configuration of toolbar options
@@ -4072,9 +4062,9 @@ export interface ToolbarOptions {
  */
 export interface Toggle {
   /**
-   * The type of the element.
+   * The identifier of the component
    */
-  type: "toggle";
+  _type: "toggle";
   /**
    * The value of the element.
    */
@@ -4091,7 +4081,7 @@ export interface Toggle {
    * Determines the way that drag start behavior is handled.
    */
   dragStartBehavior?: "start" | "down";
-  onPressed?: Listener;
+  onPressed?: Listener5;
   style?: ToggleStyle;
   /**
    * The name that will be used in the form.
@@ -4123,23 +4113,13 @@ export interface View {
   /**
    * The identifier of the component
    */
-  type: "view";
+  _type: "view";
   /**
    * The name of the view
    */
   name: string;
   props?: Props;
   find?: Find;
-  /**
-   * The query to apply to the data.
-   */
-  query?: {
-    [k: string]: unknown;
-  };
-  /**
-   * the collection where the query is applied
-   */
-  coll?: string;
   /**
    * The context projection. This field represents the projection of the context, allowing selective retrieval of specific elements. It is a map that specifies the desired elements to be included in the projection.
    */
@@ -4148,21 +4128,10 @@ export interface View {
   };
 }
 /**
- * Parameters passed to the listener
- */
-export interface Props {
-  [k: string]: unknown;
-}
-/**
  * Find query.
  */
 export interface Find {
-  /**
-   * The query to apply to the data.
-   */
-  query?: {
-    [k: string]: unknown;
-  };
+  query: Query;
   /**
    * the collection where the query is applied
    */
@@ -4175,17 +4144,23 @@ export interface Find {
   };
 }
 /**
+ * Mongo data query
+ */
+export interface Query {
+  [k: string]: unknown;
+}
+/**
  * Element of type Wrap
  */
 export interface Wrap {
   /**
    * The identifier of the component
    */
-  type: "wrap";
+  _type: "wrap";
   /**
    * The children of the wrap.
    */
-  children: Component1[];
+  children: LenraComponent[];
   direction?: Direction;
   crossAxisAlignment?: WrapCrossAlignment;
   /**
@@ -4200,79 +4175,4 @@ export interface Wrap {
   runAlignment?: WrapAlignment;
   horizontalDirection?: TextDirection;
   verticalDirection?: VerticalDirection;
-}
-/**
- * The listener to be called when the actionable is pressed.
- */
-export interface Listener11 {
-  /**
-   * The action name to call
-   */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
-}
-/**
- * The listener to be called when the actionable is double pressed.
- */
-export interface Listener12 {
-  /**
-   * The action name to call
-   */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
-}
-/**
- * The listener to be called when the actionable is long pressed.
- */
-export interface Listener13 {
-  /**
-   * The action name to call
-   */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
-}
-/**
- * The listener to be called when the actionable is pressed inside and released outside of the actionable, causing it to cancel the press action.
- */
-export interface Listener14 {
-  /**
-   * The action name to call
-   */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
-}
-/**
- * The listener to be called when the actionable is hovered and when the mouse exits the hoverable area.
- */
-export interface Listener15 {
-  /**
-   * The action name to call
-   */
-  action: string;
-  /**
-   * Parameters passed to the listener
-   */
-  props?: {
-    [k: string]: unknown;
-  };
 }

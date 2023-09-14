@@ -5,28 +5,27 @@ import { Button } from "./button";
 
 test("basic", () => {
   checkComponent(Container(), {
-    type: "container",
+    _type: "container",
   });
 });
 
 test("child", () => {
-  const text = "My text";
   checkComponent(Container(Button("Test").onPressed("test")), {
-    type: "container",
+    _type: "container",
     child: {
-      type: "button",
+      _type: "button",
       text: "Test",
       onPressed: {
-        action: "test",
+        _type: "listener",
+        name: "test",
       },
     },
   });
 });
 
 test("card", () => {
-  const text = "My text";
   checkComponent(Container.card(Button("Test").onPressed("test")), {
-    type: "container",
+    _type: "container",
     border: {
       top: {
         width: 1,
@@ -81,10 +80,11 @@ test("card", () => {
       },
     },
     child: {
-      type: "button",
+      _type: "button",
       text: "Test",
       onPressed: {
-        action: "test",
+        _type: "listener",
+        name: "test",
       },
     },
   });

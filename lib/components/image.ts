@@ -5,7 +5,7 @@ export { IImage }
 
 export function Image(src: IImage['src']): ImageImpl {
   return new ImageImpl({
-    type: "image",
+    _type: "image",
     src: src,
   });
 }

@@ -1,12 +1,12 @@
-import { Component1 } from '../component';
+import { LenraComponent } from '../component';
 import { Component } from './component';
 import { IOverlayEntry, OverlayEntryBaseImpl } from './overlayEntry.base'
 
 export { IOverlayEntry }
 
-export function OverlayEntry<T extends Component1>(child: Component<T> | T): OverlayEntryImpl {
+export function OverlayEntry<T extends LenraComponent>(child: Component<T> | T): OverlayEntryImpl {
   return new OverlayEntryImpl({
-      type: "overlayEntry",
+      _type: "overlayEntry",
       child: Component.normalize(child),
   });
 }

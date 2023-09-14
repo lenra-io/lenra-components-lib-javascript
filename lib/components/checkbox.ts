@@ -4,7 +4,7 @@ export { ICheckbox }
 
 export function Checkbox(value: ICheckbox['value']): CheckboxImpl {
   return new CheckboxImpl({
-      type: "checkbox",
+      _type: "checkbox",
       value: value,
   });
 }

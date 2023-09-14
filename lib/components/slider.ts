@@ -4,7 +4,7 @@ export { ISlider }
 
 export function Slider(): SliderImpl {
   return new SliderImpl({
-    type: "slider",
+    _type: "slider",
 
   });
 }

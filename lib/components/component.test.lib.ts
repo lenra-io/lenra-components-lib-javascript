@@ -1,5 +1,5 @@
 import { Component } from "./component";
-import { Component as IComponent } from "../component";
+import { LenraComponent as IComponent } from "../component";
 
 export function checkComponent<T extends IComponent>(
   component: Component<T>,

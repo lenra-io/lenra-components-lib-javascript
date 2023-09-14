@@ -1,12 +1,12 @@
-import { Component1 } from '../component';
+import { LenraComponent } from '../component';
 import { Component } from './component';
 import { IForm, FormBaseImpl } from './form.base'
 
 export { IForm }
 
-export function Form<T extends Component1>(child: Component<T> | T): FormImpl {
+export function Form<T extends LenraComponent>(child: Component<T> | T): FormImpl {
   return new FormImpl({
-    type: "form",
+    _type: "form",
     child: Component.normalize(child),
   });
 }

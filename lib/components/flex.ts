@@ -1,18 +1,18 @@
-import { Component1 } from '../component';
+import { LenraComponent } from '../component';
 import { Component } from './component';
 import { IFlex, FlexBaseImpl } from './flex.base'
 
 export { IFlex }
 
-export function Flex(children: (Component<Component1> | Component1)[] = []): FlexImpl {
+export function Flex(children: (Component<LenraComponent> | LenraComponent)[] = []): FlexImpl {
   return new FlexImpl({
-    type: "flex",
+    _type: "flex",
     children: children.map(Component.normalize),
   });
 }
 
 export class FlexImpl extends FlexBaseImpl {
-  addChild(child: Component<Component1> | Component1) {
+  addChild(child: Component<LenraComponent> | LenraComponent) {
     this.model.children.push(Component.normalize(child));
     return this;
   }

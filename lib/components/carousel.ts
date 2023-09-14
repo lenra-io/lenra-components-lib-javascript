@@ -4,7 +4,7 @@ export { ICarousel }
 
 export function Carousel(children: ICarousel['children']): CarouselImpl {
   return new CarouselImpl({
-    type: "carousel",
+    _type: "carousel",
     children: children,
   });
 }

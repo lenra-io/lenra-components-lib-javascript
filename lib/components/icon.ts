@@ -4,7 +4,7 @@ export { IIcon }
 
 export function Icon(value: IIcon['value']): IconImpl {
   return new IconImpl({
-      type: "icon",
+      _type: "icon",
       value: value,
   });
 }

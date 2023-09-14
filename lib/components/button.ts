@@ -6,7 +6,7 @@ export { IButton }
 
 export function Button(text: IButton['text']): ButtonImpl {
   return new ButtonImpl({
-      type: "button",
+      _type: "button",
       text: text,
   });
 }

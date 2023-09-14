@@ -1,12 +1,12 @@
-import { Component1 } from '../component';
+import { LenraComponent } from '../component';
 import { Component } from './component';
 import { IFlexible, FlexibleBaseImpl } from './flexible.base'
 
 export { IFlexible }
 
-export function Flexible<T extends Component1>(child: Component<T> | T): FlexibleImpl {
+export function Flexible<T extends LenraComponent>(child: Component<T> | T): FlexibleImpl {
   return new FlexibleImpl({
-    type: "flexible",
+    _type: "flexible",
     child: Component.normalize(child),
   });
 }

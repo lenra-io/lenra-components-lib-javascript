@@ -4,7 +4,7 @@ export { ITextField }
 
 export function TextField(value: ITextField['value']): TextFieldImpl {
   return new TextFieldImpl({
-      type: "textfield",
+      _type: "textfield",
       value: value,
   });
 }

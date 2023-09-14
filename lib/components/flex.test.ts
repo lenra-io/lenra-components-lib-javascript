@@ -6,7 +6,7 @@ import { Text } from "./text";
 
 test("empty", () => {
   checkComponent(Flex(), {
-    type: "flex",
+    _type: "flex",
     children: [],
   });
 });
@@ -18,17 +18,18 @@ test("children", () => {
       Button("Test").onPressed("test")
     ]),
     {
-      type: "flex",
+      _type: "flex",
       children: [
         {
-          type: "text",
+          _type: "text",
           value: "My text"
         },
         {
-          type: "button",
+          _type: "button",
           text: "Test",
           onPressed: {
-            action: "test",
+            _type: "listener",
+            name: "test",
           },
         },
       ],
