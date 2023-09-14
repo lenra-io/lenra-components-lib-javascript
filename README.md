@@ -24,9 +24,9 @@
     The Lenra's components JavaScript lib.
     <br />
     <br />
-    <a href="https://github.com/lenra-io/components-lib-javascript/issues">Report Bug</a>
+    <a href="https://github.com/lenra-io/lenra-components-lib-javascript/issues">Report Bug</a>
     ·
-    <a href="https://github.com/lenra-io/components-lib-javascript/issues">Request Feature</a>
+    <a href="https://github.com/lenra-io/lenra-components-lib-javascript/issues">Request Feature</a>
   </p>
 </div>
 
@@ -83,22 +83,22 @@ Distributed under the **MIT** License. See [LICENSE](./LICENSE) for more informa
 
 Lenra - [@lenra_dev](https://twitter.com/lenra_dev) - contact@lenra.io
 
-Project Link: [https://github.com/lenra-io/components-lib-javascript](https://github.com/lenra-io/components-lib-javascript)
+Project Link: [https://github.com/lenra-io/lenra-components-lib-javascript](https://github.com/lenra-io/lenra-components-lib-javascript)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/lenra-io/components-lib-javascript.svg?style=for-the-badge
-[contributors-url]: https://github.com/lenra-io/components-lib-javascript/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/lenra-io/components-lib-javascript.svg?style=for-the-badge
-[forks-url]: https://github.com/lenra-io/components-lib-javascript/network/members
-[stars-shield]: https://img.shields.io/github/stars/lenra-io/components-lib-javascript.svg?style=for-the-badge
-[stars-url]: https://github.com/lenra-io/components-lib-javascript/stargazers
-[issues-shield]: https://img.shields.io/github/issues/lenra-io/components-lib-javascript.svg?style=for-the-badge
-[issues-url]: https://github.com/lenra-io/components-lib-javascript/issues
-[license-shield]: https://img.shields.io/github/license/lenra-io/components-lib-javascript.svg?style=for-the-badge
-[license-url]: https://github.com/lenra-io/components-lib-javascript/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/lenra-io/lenra-components-lib-javascript.svg?style=for-the-badge
+[contributors-url]: https://github.com/lenra-io/lenra-components-lib-javascript/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lenra-io/lenra-components-lib-javascript.svg?style=for-the-badge
+[forks-url]: https://github.com/lenra-io/lenra-components-lib-javascript/network/members
+[stars-shield]: https://img.shields.io/github/stars/lenra-io/lenra-components-lib-javascript.svg?style=for-the-badge
+[stars-url]: https://github.com/lenra-io/lenra-components-lib-javascript/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lenra-io/lenra-components-lib-javascript.svg?style=for-the-badge
+[issues-url]: https://github.com/lenra-io/lenra-components-lib-javascript/issues
+[license-shield]: https://img.shields.io/github/license/lenra-io/lenra-components-lib-javascript.svg?style=for-the-badge
+[license-url]: https://github.com/lenra-io/lenra-components-lib-javascript/blob/master/LICENSE
 
 

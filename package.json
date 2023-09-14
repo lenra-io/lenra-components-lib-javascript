@@ -2,7 +2,7 @@
   "name": "@lenra/lenra-components",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
-  "version": "1.0.0-beta.7",
+  "version": "0.0.0",
   "description": "Lenra's components JavaScript lib",
   "keywords": [
     "Lenra",
@@ -32,12 +32,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lenra-io/lib-javascript.git"
+    "url": "git+https://github.com/lenra-io/lenra-components-lib-javascript.git"
   },
   "author": "taorepoara",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lenra-io/lib-javascript/issues"
+    "url": "https://github.com/lenra-io/lenra-components-lib-javascript/issues"
   },
-  "homepage": "https://github.com/lenra-io/lib-javascript#readme"
+  "homepage": "https://github.com/lenra-io/lenra-components-lib-javascript#readme"
 }
