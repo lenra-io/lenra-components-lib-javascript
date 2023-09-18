@@ -1,3 +1,9 @@
+# This project is archived and no longer maintained. Please use [app-lib-js](https://github.com/lenra-io/app-lib-js)
+
+
+
+
+
 <div id="top"></div>
 <!--
 *** This README was created with https://github.com/othneildrew/Best-README-Template
